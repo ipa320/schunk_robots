@@ -1,0 +1,17 @@
+<package>
+  <description brief="schunk_robots">
+
+     schunk_robots
+
+  </description>
+  <author>Florian Weisshardt</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_robots</url>
+  <depend package="schunk_description"/>
+  <depend package="schunk_sdh"/>
+  <depend package="schunk_powercube_chain"/>
+
+</package>
+
+
