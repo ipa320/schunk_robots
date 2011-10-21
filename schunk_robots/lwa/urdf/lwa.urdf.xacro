@@ -5,6 +5,10 @@
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        name="lwa" >
 
+  <!-- common stuff -->
+  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+
   <!-- calibration -->
   <include filename="$(find schunk_robots)/lwa/calibration/calibration.urdf.xacro" />
 

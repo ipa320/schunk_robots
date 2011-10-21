@@ -5,6 +5,10 @@
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        name="sdh" >
 
+  <!-- common stuff -->
+  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+
   <!-- schunk sdh -->
   <include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
 
