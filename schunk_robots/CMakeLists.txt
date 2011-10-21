@@ -31,5 +31,10 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 # rostest
 rosbuild_add_roslaunch_check(lwa/urdf/upload_lwa.launch)
+rosbuild_add_rostest(lwa/test/urdf.test)
+
 rosbuild_add_roslaunch_check(lwa_sdh/urdf/upload_lwa_sdh.launch)
+rosbuild_add_rostest(lwa_sdh/test/urdf.test)
+
 rosbuild_add_roslaunch_check(sdh/urdf/upload_sdh.launch)
+rosbuild_add_rostest(sdh/test/urdf.test)

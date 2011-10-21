@@ -4,6 +4,7 @@
   <license>LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_config</url>
+  <depend stack="cob_common" /> <!-- cob_description -->
   <depend stack="ros" />
   <depend stack="schunk_modular_robotics" /> <!-- schunk_powercube_chain, schunk_sdh, schunk_description -->
 

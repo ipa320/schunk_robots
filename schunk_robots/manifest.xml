@@ -8,6 +8,7 @@
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_robots</url>
+  <depend package="cob_description"/>
   <depend package="schunk_description"/>
   <depend package="schunk_sdh"/>
   <depend package="schunk_powercube_chain"/>

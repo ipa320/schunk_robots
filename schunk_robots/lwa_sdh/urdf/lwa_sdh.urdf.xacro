@@ -6,8 +6,8 @@
        name="lwa_sdh" >
 
   <!-- common stuff -->
-  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+  <include filename="$(find cob_description)/urdf/common.xacro" />
+  <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
 
   <!-- calibration -->
   <include filename="$(find schunk_robots)/lwa_sdh/calibration/calibration.urdf.xacro" />

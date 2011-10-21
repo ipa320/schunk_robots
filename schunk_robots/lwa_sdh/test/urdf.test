@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+  <test test-name="lwa_sdh_test" pkg="cob_description" type="test_urdf" args="$(find schunk_robots)/lwa_sdh/urdf/lwa_sdh.urdf.xacro"/>
+
+</launch> 
