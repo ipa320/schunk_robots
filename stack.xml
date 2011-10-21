@@ -1,0 +1,10 @@
+<stack>
+  <description brief="schunk_config">schunk_config</description>
+  <author>Maintained by Florian Weisshardt</author>
+  <license>LGPL</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_config</url>
+  <depend stack="ros" />
+  <depend stack="schunk_modular_robotics" /> <!-- schunk_powercube_chain, schunk_sdh, schunk_description -->
+
+</stack>
