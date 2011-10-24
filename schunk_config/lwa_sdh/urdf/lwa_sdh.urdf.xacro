@@ -3,17 +3,20 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="lwa" >
+       name="lwa_sdh" >
 
   <!-- common stuff -->
   <include filename="$(find cob_description)/urdf/common.xacro" />
   <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
 
   <!-- calibration -->
-  <include filename="$(find schunk_robots)/lwa/calibration/calibration.urdf.xacro" />
+  <include filename="$(find schunk_config)/lwa_sdh/calibration/calibration.urdf.xacro" />
 
   <!-- schunk lwa -->
   <include filename="$(find schunk_description)/urdf/lwa/lwa.urdf.xacro" />
+
+  <!-- schunk sdh -->
+  <include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
 
   <!-- foot for arm -->
 	<link name="base_link">
@@ -39,9 +42,14 @@
 		</collision>
 	</link>
 
-  <!-- arm -->
+  <!-- lwa -->
   <xacro:schunk_lwa name="arm" parent="base_link">
     <origin xyz="0 0 0.5" rpy="3.1415926 0 0" />
   </xacro:schunk_lwa>
+
+  <!-- sdh -->
+  <xacro:schunk_sdh name="sdh" parent="arm_7_link">
+    <origin xyz="0 0 0" rpy="0 3.1415926 0" />
+  </xacro:schunk_sdh>
 
 </robot>

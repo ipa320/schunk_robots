@@ -1,13 +1,13 @@
 <package>
-  <description brief="schunk_robots">
+  <description brief="schunk_config">
 
-     schunk_robots
+     schunk_config
 
   </description>
   <author>Florian Weisshardt</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/schunk_robots</url>
+  <url>http://ros.org/wiki/schunk_config</url>
   <depend package="cob_description"/>
   <depend package="schunk_description"/>
   <depend package="schunk_sdh"/>
