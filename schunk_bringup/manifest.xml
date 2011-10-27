@@ -8,7 +8,11 @@
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_bringup</url>
-
+  <depend package="robot_state_publisher"/>
+  <depend package="schunk_sdh"/>
+  <depend package="schunk_powercube_chain"/>
+  <depend package="schunk_hardware_config"/>
+  
 </package>
 
 

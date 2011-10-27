@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- upload robot_description -->
+    <include file="$(find schunk_hardware_config)/lwa/urdf/upload_lwa.launch" />
+
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+
+    <!-- start arm -->
+    <include file="$(find schunk_bringup)/components/lwa.launch" />
+
+</launch>
