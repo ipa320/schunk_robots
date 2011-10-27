@@ -1,13 +1,13 @@
 <package>
-  <description brief="schunk_config">
+  <description brief="schunk_hardware_config">
 
-     schunk_config
+     schunk_hardware_config
 
   </description>
   <author>Florian Weisshardt</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/schunk_config</url>
+  <url>http://ros.org/wiki/schunk_hardware_config</url>
   <depend package="cob_description"/>
   <depend package="schunk_description"/>
   <depend package="schunk_sdh"/>

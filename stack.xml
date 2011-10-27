@@ -1,7 +1,7 @@
 <stack>
-  <description brief="schunk_config">schunk_config</description>
+  <description brief="schunk_robots">schunk_robots</description>
   <author>Maintained by Florian Weisshardt</author>
-  <license>LGPL</license>  
+  <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_robots</url>
   <depend stack="cob_common" /> <!-- cob_description -->

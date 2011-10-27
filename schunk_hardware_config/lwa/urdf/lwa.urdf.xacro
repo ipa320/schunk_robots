@@ -10,7 +10,7 @@
   <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
 
   <!-- calibration -->
-  <include filename="$(find schunk_config)/lwa/calibration/calibration.urdf.xacro" />
+  <include filename="$(find schunk_hardware_config)/lwa/calibration/calibration.urdf.xacro" />
 
   <!-- schunk lwa -->
   <include filename="$(find schunk_description)/urdf/lwa/lwa.urdf.xacro" />
