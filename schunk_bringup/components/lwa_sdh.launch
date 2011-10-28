@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="arm_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
+		<rosparam command="load" file="$(find schunk_hardware_config)/lwa/config/lwa.yaml"/>
+	</node>
+
+	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="false" output="screen" >
+		<rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
+	</node>
+
+</launch>
