@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-  <test test-name="sdh_test" pkg="cob_description" type="test_urdf" args="$(find schunk_hardware_config)/sdh/urdf/sdh.urdf.xacro"/>
+  <test test-name="sdh_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_hardware_config)/sdh/urdf/sdh.urdf.xacro"/>
 
 </launch> 
