@@ -1,0 +1,9 @@
+<stack>
+  <description brief="schunk_simulation">schunk_simulation</description>
+  <author>Maintained by fmw</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_simulation</url>
+  <depend stack="ros" />
+
+</stack>

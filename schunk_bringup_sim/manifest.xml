@@ -1,0 +1,14 @@
+<package>
+  <description brief="schunk_bringup_sim">
+
+     schunk_bringup_sim
+
+  </description>
+  <author>fmw</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_bringup_sim</url>
+
+</package>
+
+
