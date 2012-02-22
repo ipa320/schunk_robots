@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- send lwa urdf to param server -->
+  <include file="$(find schunk_bringup_sim)/urdf/upload_lwa.launch" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa -z 0.1 " respawn="false" output="screen" />
+
+  <!-- controller manager -->
+  <include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+
+
+  <!-- lwa controllers -->
+  <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/lwa_controller.launch" />
+
+</launch>
+
