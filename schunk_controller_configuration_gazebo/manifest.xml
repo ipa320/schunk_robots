@@ -1,0 +1,14 @@
+<package>
+  <description brief="schunk_controller_configutarion_gazebo">
+
+     schunk_controller_configutarion_gazebo
+
+  </description>
+  <author>Nadia Hammoudeh</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_controller_configutarion_gazebo</url>
+
+</package>
+
+
