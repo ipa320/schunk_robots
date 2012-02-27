@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-        <!-- Send lwa urdf to param server -->
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_bringup_sim)/urdf/lwa_extended.urdf.xacro'" />
-
-</launch>
-
