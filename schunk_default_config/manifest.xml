@@ -1,0 +1,14 @@
+<package>
+  <description brief="schunk_default_config">
+
+     schunk_default_config
+
+  </description>
+  <author>Nadia Hammoudeh</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_default_config</url>
+
+</package>
+
+

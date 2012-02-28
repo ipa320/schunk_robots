@@ -2,7 +2,7 @@
 <launch>
 
 	<!-- upload robot_description -->
-    <include file="$(find schunk_hardware_config)/lwa/urdf/upload_lwa.launch" />
+        <include file="$(find schunk_hardware_config)/lwa/urdf/upload_lwa.launch" />
 
 	<!-- start robot_state_publisher -->
 	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>

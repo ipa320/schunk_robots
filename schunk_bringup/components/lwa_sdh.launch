@@ -9,4 +9,9 @@
 		<rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
 	</node>
 
+ 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+ 	<node ns="sdh_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+
 </launch>
