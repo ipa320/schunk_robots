@@ -12,6 +12,11 @@
   <depend package="schunk_sdh"/>
   <depend package="schunk_powercube_chain"/>
   <depend package="schunk_hardware_config"/>
+  <depend package="cob_trajectory_controller"/>
+  <depend package="schunk_default_config"/>
+  <depend package="cob_script_server"/>
+  <depend package="cob_dashboard"/>
+  <depend package="cob_command_gui"/>
   
 </package>
 
