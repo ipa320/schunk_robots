@@ -8,5 +8,6 @@
   <depend stack="robot_model" /> <!-- robot_state_publisher -->
   <depend stack="ros" />
   <depend stack="schunk_modular_robotics" /> <!-- schunk_powercube_chain, schunk_sdh, schunk_description -->
+  <depend stack="cob_driver" /> 
 
 </stack>
