@@ -8,6 +8,7 @@
   <!-- common stuff -->
   <include filename="$(find cob_description)/urdf/common.xacro" />
   <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
+  <include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
 
   <!-- schunk sdh -->
   <include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
