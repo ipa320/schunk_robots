@@ -5,7 +5,7 @@
   <include file="$(find cob_gazebo_worlds)/ros/launch/empty-world.launch" />
 
   <!-- send lwa urdf to param server -->
-  <include file="$(find schunk_bringup_sim)/urdf/upload_lwa.launch" />
+  <include file="$(find schunk_hardware_config)/lwa/urdf/upload_lwa.launch" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa -z 0.1 " respawn="false" output="screen" />
