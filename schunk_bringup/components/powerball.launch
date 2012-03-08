@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="arm_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
+		<rosparam command="load" file="$(find schunk_hardware_config)/powerball/config/powerball.yaml"/>
+	</node>
+
+ 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+
+</launch>
