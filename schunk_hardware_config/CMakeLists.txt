@@ -30,11 +30,14 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 # rostest
-rosbuild_add_roslaunch_check(lwa/urdf/upload_lwa.launch)
+rosbuild_add_roslaunch_check(lwa/urdf)
 rosbuild_add_rostest(lwa/test/urdf.test)
 
-rosbuild_add_roslaunch_check(lwa_sdh/urdf/upload_lwa_sdh.launch)
+rosbuild_add_roslaunch_check(lwa_sdh/urdf)
 rosbuild_add_rostest(lwa_sdh/test/urdf.test)
 
-rosbuild_add_roslaunch_check(sdh/urdf/upload_sdh.launch)
+rosbuild_add_roslaunch_check(sdh/urdf)
 rosbuild_add_rostest(sdh/test/urdf.test)
+
+rosbuild_add_roslaunch_check(powerball/urdf)
+rosbuild_add_rostest(powerball/test/urdf.test)

@@ -30,11 +30,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 # rostest
-rosbuild_add_roslaunch_check(components/lwa.launch)
-rosbuild_add_roslaunch_check(components/lwa_solo.launch)
-
-rosbuild_add_roslaunch_check(components/sdh.launch)
-rosbuild_add_roslaunch_check(components/sdh_solo.launch)
-
-rosbuild_add_roslaunch_check(components/lwa_sdh.launch)
-rosbuild_add_roslaunch_check(components/lwa_sdh_solo.launch)
+rosbuild_add_roslaunch_check(components)
