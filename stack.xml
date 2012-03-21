@@ -1,7 +1,11 @@
 <stack>
-  <description brief="schunk_robots">schunk_robots</description>
+  <description brief="schunk_robots">
+  
+    This stack holds packages for hardware configuration as well as launch files for starting up Schunk components.
+
+  </description>
   <author>Maintained by Florian Weisshardt</author>
-  <license>BSD,LGPL</license>  
+  <license>LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_robots</url>
   <depend stack="cob_command_tools" /> <!-- cob_command_gui, cob_dashboard, cob_script_server -->

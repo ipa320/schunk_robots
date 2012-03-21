@@ -1,14 +1,12 @@
 <package>
   <description brief="schunk_default_config">
 
-     schunk_default_config
+     Default configuration of the different Schunk components. Configuration is e.g. preconfigured joint positions.
 
   </description>
-  <author>Nadia Hammoudeh</author>
-  <license>BSD</license>
+  <author>Nadia Hammoudeh Garcia</author>
+  <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_default_config</url>
 
 </package>
-
-
