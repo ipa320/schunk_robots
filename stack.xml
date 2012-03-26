@@ -1,9 +1,19 @@
 <stack>
-  <description brief="schunk_simulation">schunk_simulation</description>
-  <author>Maintained by fmw</author>
-  <license>BSD</license>  
+  <description brief="schunk_simulation">
+
+    The schunk_simulation stack includes packages to work with simulated Schunk components.
+  
+  </description>
+  <author>Maintained by Florian Weisshardt</author>
+  <license>LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_simulation</url>
+  <depend stack="cob_environments" /> <!-- cob_gazebo_worlds -->
+  <depend stack="cob_simulation" /> <!-- cob_controller_configuration_gazebo, cob_simulated_tactile_sensors -->
+  <depend stack="pr2_controllers" /> <!-- joint_trajectory_action -->
+  <depend stack="pr2_mechanism" /> <!-- pr2_controller_manager -->
   <depend stack="ros" />
+  <depend stack="schunk_robots" /> <!-- schunk_hardware_config -->
+  <depend stack="simulator_gazebo" /> <!-- gazebo -->
 
 </stack>
