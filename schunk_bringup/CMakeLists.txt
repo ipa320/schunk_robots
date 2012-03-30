@@ -31,3 +31,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 # rostest
 rosbuild_add_roslaunch_check(components)
+rosbuild_add_roslaunch_check(tools)
