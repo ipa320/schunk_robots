@@ -11,6 +11,6 @@
 
   <depend package="pr2_controller_manager"/>
   <depend package="joint_trajectory_action"/>
-  <depend package="cob_simulated_tactile_sensors"/>
+  <depend package="schunk_simulated_tactile_sensors"/>
 
 </package>
