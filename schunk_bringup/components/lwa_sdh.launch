@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
-	<node name="arm_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
-		<rosparam command="load" file="$(find schunk_hardware_config)/lwa/config/lwa.yaml"/>
-	</node>
+	<!-- upload script server parameters -->
+	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/lwa_joint_configurations.yaml"/>
+	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
-	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="false" output="screen" >
-		<rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
-	</node>
+	<!-- startup lwa -->
+	<include file="$(find schunk_bringup)/components/lwa.launch"/>
 
- 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
- 	<node ns="sdh_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
+	<!-- startup sdh -->
+	<include file="$(find schunk_bringup)/components/sdh.launch"/>
 
 </launch>

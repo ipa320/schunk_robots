@@ -1,16 +1,10 @@
 <?xml version="1.0"?>
 <launch>
 
-        <!-- upload button parameters, but delete the old ones before -->
-        <rosparam command="delete" param="command_gui"/>
-        <rosparam command="load" ns="command_gui/control_buttons" file="$(find schunk_default_config)/config/command_gui_buttons_powerball.yaml"/>
-
-
-        <!-- upload script server parameters -->
-        <rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/powerball_joint_configurations.yaml"/>
-
-        <!-- start command_gui -->
-        <node pkg="cob_command_gui" type="knoeppkes.py" name="$(anon command_gui_node)" ns="dashboard" cwd="node" respawn="false" output="screen" />
+	<!-- start command_gui -->
+	<node ns="command_gui" pkg="cob_command_gui" type="knoeppkes.py" name="$(anon command_gui_node)" cwd="node" respawn="false" output="screen" >
+		<!-- upload button parameters, but delete the old ones before -->
+		<rosparam command="load" ns="control_buttons" file="$(find schunk_default_config)/config/command_gui_buttons_powerball.yaml"/>
+	</node>
 
 </launch>
-

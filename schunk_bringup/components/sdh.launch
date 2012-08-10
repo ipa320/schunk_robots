@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 
-	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="false" output="screen" >
+	<!-- upload script server parameters -->
+	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
+
+	<!-- startup sdh -->
+	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="true" output="screen" >
 		<rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
 	</node>
-
- 	<node ns="sdh_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
 
 </launch>
