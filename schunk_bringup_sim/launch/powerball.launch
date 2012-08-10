@@ -1,21 +1,22 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- launch an empty world -->
-  <include file="$(find cob_gazebo_worlds)/launch/empty-world.launch" />
+	<!-- upload script server parameters -->
+	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/lwa_joint_configurations.yaml"/>
 
-  <!-- send powerball urdf to param server -->
-  <include file="$(find schunk_hardware_config)/powerball/urdf/upload_powerball.launch" />
+	<!-- launch an empty world -->
+	<include file="$(find cob_gazebo_worlds)/launch/empty-world.launch" />
 
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model powerball -z 0.1 " respawn="false" output="screen" />
+	<!-- send powerball urdf to param server -->
+	<include file="$(find schunk_hardware_config)/powerball/urdf/upload_powerball.launch" />
 
-  <!-- controller manager -->
-  <include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+	<!-- push robot_description to factory and spawn robot in gazebo -->
+	<node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model powerball -z 0.1 " respawn="false" output="screen" />
 
+	<!-- controller manager -->
+	<include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
 
-  <!-- powerball controllers -->
-  <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/powerball_controller.launch" />
+	<!-- powerball controllers -->
+	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/powerball_controller.launch" />
 
 </launch>
-
