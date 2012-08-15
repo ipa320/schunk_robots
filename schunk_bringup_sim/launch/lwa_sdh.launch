@@ -1,20 +1,24 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- launch an empty world -->
-  <include file="$(find cob_gazebo_worlds)/ros/launch/empty-world.launch" />
+	<!-- upload script server parameters -->
+	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/lwa_joint_configurations.yaml"/>
+	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
-  <!-- send lwa urdf to param server -->
-  <include file="$(find schunk_hardware_config)/lwa_sdh/urdf/upload_lwa_sdh.launch" />
+	<!-- launch an empty world -->
+	<include file="$(find cob_gazebo_worlds)/launch/empty-world.launch" />
 
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa_sdh -z 0.1 " respawn="false" output="screen" />
+	<!-- send lwa urdf to param server -->
+	<include file="$(find schunk_hardware_config)/lwa_sdh/urdf/upload_lwa_sdh.launch" />
 
-  <!-- controller manager -->
-  <include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+	<!-- push robot_description to factory and spawn robot in gazebo -->
+	<node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa_sdh -z 0.1 " respawn="false" output="screen" />
 
-  <!-- lwa controllers -->
-  <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/lwa_controller.launch" />
-  <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/sdh_controller.launch" />
+	<!-- controller manager -->
+	<include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+
+	<!-- lwa controllers -->
+	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/lwa_controller.launch" />
+	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/sdh_controller.launch" />
 
 </launch>
