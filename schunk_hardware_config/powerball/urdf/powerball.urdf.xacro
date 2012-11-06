@@ -42,7 +42,7 @@
 
   <!-- arm -->
   <xacro:schunk_powerball name="arm" parent="base_link">
-    <origin xyz="0 0 0.5" rpy="3.1415926 0 0" />
+    <origin xyz="0 0 0.54" rpy="0 0 0" />
   </xacro:schunk_powerball>
 
 </robot>
