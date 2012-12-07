@@ -1,0 +1,17 @@
+<package>
+  <description brief="schunk_bringup_sim">
+
+     This package provides launch files for starting a simulated Schunk components.
+
+  </description>
+  <author>Florian Weisshardt</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_bringup_sim</url>
+
+  <depend package="schunk_hardware_config"/>
+  <depend package="schunk_controller_configuration_gazebo"/>
+  <depend package="cob_controller_configuration_gazebo"/>
+  <depend package="gazebo"/>
+
+</package>
