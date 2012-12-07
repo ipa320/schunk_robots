@@ -6,6 +6,8 @@
 	</include>
   
 	<node pkg="planning_environment" type="environment_server" output="screen" name="environment_server">
+		<arg name="use_monitor" value="false" />
+		<arg name="use_collision_map" value="false" />
 	</node>      
 	<node pkg="planning_environment" type="planning_scene_validity_server" output="screen" name="planning_scene_validity_server"/>
 </launch>
