@@ -13,6 +13,5 @@
   <depend package="schunk_controller_configuration_gazebo"/>
   <depend package="cob_controller_configuration_gazebo"/>
   <depend package="gazebo"/>
-  <depend package="cob_gazebo_worlds"/>
 
 </package>
