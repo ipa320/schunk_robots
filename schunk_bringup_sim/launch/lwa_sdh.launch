@@ -6,7 +6,7 @@
 	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
 	<!-- launch an empty world -->
-	<include file="$(find gazebo_worlds)/launch/empty-world.launch" />
+	<include file="$(find gazebo_worlds)/launch/empty_world.launch" />
 
 	<!-- send lwa urdf to param server -->
 	<include file="$(find schunk_hardware_config)/lwa_sdh/urdf/upload_lwa_sdh.launch" />
