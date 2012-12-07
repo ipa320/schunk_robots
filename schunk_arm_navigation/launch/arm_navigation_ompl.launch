@@ -7,10 +7,10 @@
         	<include file="$(find schunk_arm_navigation)/launch/environment_server.xml">
 			<arg name="robot" value="$(arg robot)"/>
 		</include>
-        	<include file="$(find schunk_arm_navigatio)/launch/ompl_planning.xml">
+        	<include file="$(find schunk_arm_navigation)/launch/ompl_planning.xml">
                 	<arg name="robot" value="$(arg robot)"/>
         	</include>
-        	<include file="$(find schunk_arm_navigatio)/launch/move_groups.xml">
+        	<include file="$(find schunk_arm_navigation)/launch/move_groups.xml">
                 	<arg name="robot" value="$(arg robot)"/>
         	</include>
     	</group>
