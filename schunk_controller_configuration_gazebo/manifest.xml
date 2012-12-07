@@ -1,0 +1,16 @@
+<package>
+  <description brief="schunk_controller_configutarion_gazebo">
+
+     This packages provides the controller configuration for simulating Schunk components in the gazebo simulator.
+
+  </description>
+  <author>Nadia Hammoudeh Garcia</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_controller_configutarion_gazebo</url>
+
+  <depend package="pr2_controller_manager"/>
+  <depend package="joint_trajectory_action"/>
+  <depend package="schunk_simulated_tactile_sensors"/>
+
+</package>
