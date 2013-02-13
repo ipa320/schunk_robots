@@ -1,0 +1,13 @@
+# canopen parameter
+can_module: PCAN
+can_baudrate: 1000
+max_accelerations: [0.8,0.8,0.8,0.8,0.8,0.8]
+OperationMode: position
+
+joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint]
+
+# trajectory controller parameters
+ptp_vel: 0.4 # rad/sec
+ptp_acc: 0.1 # rad/sec^2
+max_error: 0.2 # rad
+frequency: 100

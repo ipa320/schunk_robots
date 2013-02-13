@@ -1,0 +1,6 @@
+<launch>
+	<arg name="robot" default="$(env ROBOT)"/>
+
+	<rosparam command="load" ns="robot_description_planning" file="$(find schunk_manipulation_config)/$(arg robot)/planning_description.yaml" />
+	<rosparam command="load" ns="robot_description_planning" file="$(find schunk_manipulation_config)/$(arg robot)/default_collision_operations.yaml" />
+</launch>
