@@ -1,14 +1,21 @@
 
 <launch>
 
-<!--	<node name="arm_controller" pkg="schunk_powerball_chain" type="schunk_powerball_chain" cwd="node" respawn="false" output="screen" > -->
-<node name="arm_controller" pkg="ros_canopen" type="ros_canopenmasternode" cwd="node" respawn="false" output="screen" > 
-<rosparam command="load" ns="/chaindesc" file="$(find schunk_hardware_config)/powerball/config/powerball.yaml"/>
-<rosparam command="load" file="$(find schunk_hardware_config)/powerball/config/powerball_basic.yaml"/>
-	</node>
+<!-- parameters for CANopen node -->
+<rosparam command="load" ns="canopen" file="$(find schunk_hardware_config)/powerball/config/powerball_CANopen.yaml" />
 
+<!-- parameter description of the CAN modules and for the corresponding trajectory controller -->
+<rosparam command="load" ns="arm_controller" file="$(find schunk_hardware_config)/powerball/config/powerball_modules.yaml" />
+<rosparam command="load" ns="arm_controller" file="$(find schunk_hardware_config)/powerball/config/powerball_trajectory_controller.yaml" />
 
- 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+<!-- This is the CANopen ROS wrapper node -->
+<node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="canopen_ros" cwd="node" respawn="false" output="screen" /> 
 
+<!-- The trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
+<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+<!-- <rosparam command="load" ns="/chaindesc" file="$(find schunk_hardware_config)/powerball/config/powerball.yaml"/> -->
+<!-- <rosparam command="load" file="$(find schunk_hardware_config)/powerball/config/powerball_basic.yaml"/> -->
+<!-- </node> -->
 
 </launch>
