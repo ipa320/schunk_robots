@@ -10,7 +10,9 @@ group1:
   component_name: arm
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
-    [recover,trigger,recover]]
+    [recover,trigger,recover],
+    [homing,trigger,homing],
+    [IPmode,trigger,IPmode]]
 
 group2:
   group_name: arm pos

@@ -1,0 +1,6 @@
+<launch>
+	<arg name="robot" default="$(env ROBOT)"/>
+	<node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="schunk_arm_kinematics">
+		<rosparam file="$(find schunk_manipulation_config)/$(arg robot)/kinematics.yaml"/>
+	</node>
+</launch>
