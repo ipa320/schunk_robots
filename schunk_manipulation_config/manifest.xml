@@ -5,7 +5,7 @@
 
   </description>
   <author>Mathias Lüdtke</author>
-  <license>BSD</license>
+  <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_manipulation_config</url>
 
