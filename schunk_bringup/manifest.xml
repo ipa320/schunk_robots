@@ -17,6 +17,7 @@
   <depend package="cob_script_server"/>
   <depend package="cob_dashboard"/>
   <depend package="cob_command_gui"/>
+  <depend package="ipa_canopen_ros"/>
   
 </package>
 
