@@ -14,7 +14,7 @@
 	<node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model powerball -z 0.01 " respawn="false" output="screen" />
 
 	<!-- controller manager -->
-	<include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
 
 	<!-- powerball controllers -->
 	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/powerball_controller.launch" />
