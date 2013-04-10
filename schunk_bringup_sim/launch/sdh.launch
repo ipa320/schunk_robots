@@ -14,7 +14,7 @@
 	<node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model sdh -z 0.1 " respawn="false" output="screen" />
 
 	<!-- controller manager -->
-	<include file="$(find cob_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
 
 	<!-- sdh controllers -->
 	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/sdh_controller.launch" />
