@@ -33,9 +33,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 rosbuild_add_roslaunch_check(lwa/urdf)
 rosbuild_add_rostest(lwa/test/urdf.test)
 
-rosbuild_add_roslaunch_check(lwa_sdh/urdf)
-rosbuild_add_rostest(lwa_sdh/test/urdf.test)
-
 rosbuild_add_roslaunch_check(sdh/urdf)
 rosbuild_add_rostest(sdh/test/urdf.test)
 
