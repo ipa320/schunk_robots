@@ -20,14 +20,5 @@ group2:
   buttons: [[stop,trigger,stop],
     [home,move,home],
     [folded,move,folded],
-    [pregrasp,move,pregrasp],
-    [hold,move,hold]]
-
-group3:
-  group_name: arm traj
-  component_name: arm
-  buttons: [[stop,trigger,stop],
-    [home-folded-home,move,home-folded-home],
-    [folded-pregrasp,move,folded-pregrasp],
-    [folded-pregrasp-grasp,move,folded-pregrasp-grasp]]
-
+    [wave_left,move,wave_left],
+    [wave_right,move,wave_right]]
