@@ -123,7 +123,9 @@ class save_pose:
 
     def update_params(self):
         rospy.loginfo(self.joint_state)
-        rospy.set_param(self.param, self.joint_state)
+        jl = []
+        jl.append(self.joint_state)
+        rospy.set_param(self.param, jl)
             
 if __name__=="__main__":
 
