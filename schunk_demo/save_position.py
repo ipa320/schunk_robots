@@ -99,7 +99,7 @@ class save_pose:
         
         rospy.loginfo(self.pose)
         
-        self.param = 'script_server/arm/' + self.pose
+        self.param = '/script_server/arm/' + self.pose
         
         rospy.loginfo(self.param)
         
