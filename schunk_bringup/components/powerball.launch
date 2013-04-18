@@ -19,7 +19,7 @@
 		</node>
 		
 		<node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
-		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/powerball/config/teleop.yaml"/>
+		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/powerball/config/teleop_powerball.yaml"/>
 		</node>
 <!-- <rosparam command="load" ns="/chaindesc" file="$(find schunk_hardware_config)/powerball/config/powerball.yaml"/> -->
 <!-- <rosparam command="load" file="$(find schunk_hardware_config)/powerball/config/powerball_basic.yaml"/> -->

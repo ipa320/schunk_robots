@@ -25,6 +25,6 @@
 		</node>
 		
 		<node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
-		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa/config/teleop.yaml"/>
+		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa/config/teleop_lwa.yaml"/>
 		</node>
 </launch>

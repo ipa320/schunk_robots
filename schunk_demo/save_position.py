@@ -24,7 +24,7 @@
 # \date Date of creation: April 2013
 #
 # \brief
-# Powerball arm class
+# Saves current arm position
 #
 #################################################################
 #
@@ -56,39 +56,87 @@
 # If not, see < http://www.gnu.org/licenses/>.
 #
 #################################################################
-import roslib; 
-roslib.load_manifest('schunk_arm_navigation')
+
+import roslib;
+roslib.load_manifest("schunk_demo")
 import rospy
 import rosparam
+import getopt
+import sys
+from sys import *
 import actionlib
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from control_msgs.msg import *
 roslib.load_manifest('cob_script_server')
 from simple_script_server import *
 
-class powerball_arm:
+from pr2_controllers_msgs.msg import *
+
+class save_pose:
     
     def __init__(self):
        
-        self._client = actionlib.SimpleActionClient('arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction)
+        self._client = actionlib.SimpleActionClient('/arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction)
         self._client.wait_for_server()
-        self.available_poses = ['home', 'folded', 'wave_left', 'wave_right']
         self.sss = simple_script_server()
-
-    def move_arm(self):
+        self.pose = ''
+        self.joint_state = []
+        
+        
+        
+        try:
+            opts, args = getopt.getopt(sys.argv[1:],"h:p:",["pose="])
+            rospy.loginfo(args)
+        except getopt.GetoptError:
+            print 'python save_position.py -p <posename>'
+            sys.exit(2)
+        for opt, arg in opts:   
+            if opt == '-h':
+                print 'python save_position.py -p <posename>'
+                sys.exit()
+            elif opt in ("-p", "--pose"):
+                self.pose = arg
+        
+        rospy.loginfo(self.pose)
+        
+        self.param = 'script_server/arm/' + self.pose
+        
+        rospy.loginfo(self.param)
+        
+        self.ready = 0
+        
+        rospy.Subscriber('/arm_controller/state', JointTrajectoryControllerState, self.get_joint_state)
+        
+    def get_joint_state(self, msg):
+        self.joint_state = list(msg.actual.positions)
+        self.ready = 1
+        
+    def check_ss(self):
     
-        for pose in self.available_poses:
-    
-            self.sss.move('arm', pose)
-            rospy.sleep(10)
-    
+        pose_exists = rospy.has_param(self.param)
+        
+        if(pose_exists):
+            c_pose = rospy.get_param(self.param)
+            rospy.loginfo("Pose Exists")
+            self.update_params()
+            
+    def update_params(self):
+        rospy.loginfo(self.joint_state)
+        jl = []
+        jl.append(self.joint_state)
+        rospy.set_param(self.param, jl)
+            
 if __name__=="__main__":
-
-    rospy.init_node("powerball_arm")
-    pball = powerball_arm()
+    rospy.init_node("save_pose")
+    sp = save_pose()
+    
     r = rospy.Rate(10)
+    
+    while(not sp.ready):
+        r.sleep()
+        
+    sp.check_ss()
     
     while not rospy.is_shutdown():
 
-        pball.move_arm()
         r.sleep()

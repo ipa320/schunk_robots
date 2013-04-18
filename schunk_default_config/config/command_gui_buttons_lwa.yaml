@@ -20,6 +20,14 @@ group2:
     [wave_left,move,wave_left],
     [wave_right,move,wave_right]]
 
+# trajectories
+   
+group3:
+  group_name: arm traj
+  component_name: arm
+  buttons: [[stop,trigger,stop],
+    [wave,move,wave_left-wave_right-home]]
+
 
 
 
