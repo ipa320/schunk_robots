@@ -26,4 +26,8 @@
 	<node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
 		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/powerball/config/teleop_powerball.yaml"/>
 		</node>
+		
+	<!-- launch rviz -->
+	<include file="$(find schunk_bringup_sim)/launch/rviz.launch" />
+	
 </launch>
