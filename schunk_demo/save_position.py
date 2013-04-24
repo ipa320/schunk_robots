@@ -136,7 +136,3 @@ if __name__=="__main__":
         r.sleep()
         
     sp.check_ss()
-    
-    while not rospy.is_shutdown():
-
-        r.sleep()

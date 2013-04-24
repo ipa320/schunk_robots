@@ -78,7 +78,7 @@ class powerball_arm:
         for pose in self.available_poses:
     
             self.sss.move('arm', pose)
-            rospy.sleep(20)
+            #rospy.sleep(5)
     
 if __name__=="__main__":
 
