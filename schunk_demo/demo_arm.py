@@ -70,7 +70,7 @@ class powerball_arm:
     
     def __init__(self):
        
-        self.available_poses = ['home', 'folded', 'wave_left', 'wave_right']
+        self.available_poses = ['home', 'folded', 'waveleft', 'waveright']
         self.sss = simple_script_server()
 
     def move_arm(self):

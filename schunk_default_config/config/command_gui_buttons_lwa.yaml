@@ -17,8 +17,8 @@ group2:
   buttons: [[stop,trigger,stop],
     [home,move,home],
     [folded,move,folded],
-    [wave_left,move,wave_left],
-    [wave_right,move,wave_right]]
+    [waveleft,move,waveleft],
+    [waveright,move,waveright]]
 
 # trajectories
    
@@ -26,7 +26,7 @@ group3:
   group_name: arm traj
   component_name: arm
   buttons: [[stop,trigger,stop],
-    [wave,move,wave_left-wave_right-home]]
+    [wave,move,wave]]
 
 
 
