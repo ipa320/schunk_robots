@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- upload script server parameters -->
-	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
+    <!-- upload script server parameters -->
+    <rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
-	<!-- launch an empty world -->
-	<include file="$(find gazebo_worlds)/launch/empty_world.launch" />
+    <!-- launch an empty world -->
+    <include file="$(find gazebo_worlds)/launch/empty_world.launch" />
 
-	<!-- send lwa urdf to param server -->
-	<include file="$(find schunk_hardware_config)/sdh/urdf/upload_sdh.launch" />
+    <!-- send lwa urdf to param server -->
+    <include file="$(find schunk_hardware_config)/sdh/urdf/upload_sdh.launch" />
 
-	<!-- push robot_description to factory and spawn robot in gazebo -->
-	<node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model sdh -z 0.1 " respawn="false" output="screen" />
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model sdh -z 0.1 " respawn="false" output="screen" />
 
-	<!-- controller manager -->
-	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
+    <!-- controller manager -->
+    <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
 
-	<!-- sdh controllers -->
-	<include file="$(find schunk_controller_configuration_gazebo)/ros/launch/sdh_controller.launch" />
+    <!-- sdh controllers -->
+    <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/sdh_controller.launch" />
 
 </launch>
