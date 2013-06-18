@@ -61,8 +61,6 @@ roslib.load_manifest('schunk_demo')
 import rospy
 import rosparam
 import actionlib
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from control_msgs.msg import *
 roslib.load_manifest('cob_script_server')
 from simple_script_server import *
 

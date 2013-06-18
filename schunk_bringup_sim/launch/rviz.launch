@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-<!-- Run rviz -->
-	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find schunk_default_config)/config/minimal.vcg" />
+    <!-- Run rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find schunk_default_config)/config/minimal.vcg" />
 	
 </launch>
