@@ -11,8 +11,7 @@ group1:
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
     [recover,trigger,recover],
-    [homing,trigger,homing],
-    [IPmode,trigger,IPmode]]
+    [homing,trigger,homing]]
 
 group2:
   group_name: arm pos
@@ -20,14 +19,13 @@ group2:
   buttons: [[stop,trigger,stop],
     [home,move,home],
     [folded,move,folded],
-    [pregrasp,move,pregrasp],
-    [hold,move,hold]]
-
+    [waveleft,move,waveleft],
+    [waveright,move,waveright]]
+    
+# trajectories
 group3:
   group_name: arm traj
   component_name: arm
   buttons: [[stop,trigger,stop],
-    [home-folded-home,move,home-folded-home],
-    [folded-pregrasp,move,folded-pregrasp],
-    [folded-pregrasp-grasp,move,folded-pregrasp-grasp]]
+    [wave,move,wave]]
 
