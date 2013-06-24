@@ -1,0 +1,18 @@
+<package>
+  <description brief="schunk_demo">
+
+     schunk_arm_navigation
+
+  </description>
+  <author>Thiago de Freitas</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_arm_navigation</url>
+  <depend package="actionlib"/>
+  <depend package="trajectory_filter_server"/>
+  <depend package="move_arm"/>
+  <depend package="rviz"/>
+  <depend package="robot_state_publisher"/>
+</package>
+
+
