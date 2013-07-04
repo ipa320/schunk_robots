@@ -71,9 +71,8 @@ class powerball_arm:
 
     def move_arm(self):
     
-        for pose in self.available_poses:
+        for pose in self.available_poses:    
             self.sss.move('arm', pose)
-
 
 if __name__=="__main__":
 

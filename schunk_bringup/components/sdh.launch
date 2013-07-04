@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- upload script server parameters -->
-	<rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
+    <!-- upload script server parameters -->
+    <rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
-	<!-- startup sdh -->
-	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="true" output="screen" >
-		<rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
-	</node>
+    <!-- startup sdh -->
+    <node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="true" output="screen" >
+        <rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdh.yaml"/>
+    </node>
 
 </launch>
