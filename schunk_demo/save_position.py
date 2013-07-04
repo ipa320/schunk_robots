@@ -64,10 +64,7 @@ import rosparam
 import getopt
 import sys
 from sys import *
-import actionlib
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from control_msgs.msg import *
-roslib.load_manifest('cob_script_server')
 from simple_script_server import *
 
 from pr2_controllers_msgs.msg import *
@@ -76,8 +73,6 @@ class save_pose:
     
     def __init__(self):
        
-        self._client = actionlib.SimpleActionClient('/arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction)
-        self._client.wait_for_server()
         self.sss = simple_script_server()
         self.pose = ''
         self.joint_state = []

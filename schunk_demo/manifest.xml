@@ -8,14 +8,9 @@
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_arm_navigation</url>
-  <depend package="actionlib"/>
-  <depend package="planning_environment"/>
-  <depend package="arm_kinematics_constraint_aware"/>
-  <depend package="trajectory_filter_server"/>
-  <depend package="constraint_aware_spline_smoother"/>
-  <depend package="move_arm"/>
-  <depend package="rviz"/>
-  <depend package="robot_state_publisher"/>
+
+  <depend package="rospy"/>
+  <depend package="cob_script_server"/>
+  <depend package="pr2_controllers_msgs"/>
+
 </package>
-
-

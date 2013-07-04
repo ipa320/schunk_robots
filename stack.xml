@@ -9,7 +9,6 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_robots</url>
   <depend stack="arm_navigation" /> <!-- move_arm, trajectory_filter_server, planning_environment, robot_self_filter, constraint_aware_spline_smoother, arm_kinematics_constraint_aware, ompl_ros_interface -->
-  <depend stack="arm_navigation_experimental" /> <!-- collider -->
   <depend stack="cob_command_tools" /> <!-- cob_command_gui, cob_dashboard, cob_script_server -->
   <depend stack="cob_common" /> <!-- cob_description -->
   <depend stack="cob_driver" /> <!-- cob_trajectory_controller -->

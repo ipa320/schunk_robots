@@ -59,11 +59,7 @@
 import roslib; 
 roslib.load_manifest('schunk_demo')
 import rospy
-import rosparam
-import actionlib
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from control_msgs.msg import *
-roslib.load_manifest('cob_script_server')
+
 from simple_script_server import *
 
 class powerball_arm:
@@ -76,10 +72,9 @@ class powerball_arm:
     def move_arm(self):
     
         for pose in self.available_poses:
-    
             self.sss.move('arm', pose)
-            #rospy.sleep(5)
-    
+
+
 if __name__=="__main__":
 
     rospy.init_node("powerball_arm")
@@ -87,6 +82,5 @@ if __name__=="__main__":
     r = rospy.Rate(10)
     
     while not rospy.is_shutdown():
-
         pball.move_arm()
         r.sleep()

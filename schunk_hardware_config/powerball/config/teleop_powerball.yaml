@@ -1,5 +1,5 @@
 # common params
-run_factor: 2.0
+run_factor: 1.0
 
 # buttons
 lower_neck_button: 6
