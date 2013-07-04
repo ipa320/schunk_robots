@@ -8,6 +8,7 @@
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/schunk_bringup</url>
+
   <depend package="robot_state_publisher"/>
   <depend package="schunk_sdh"/>
   <depend package="schunk_powercube_chain"/>
@@ -17,8 +18,8 @@
   <depend package="cob_script_server"/>
   <depend package="cob_dashboard"/>
   <depend package="cob_command_gui"/>
+  <depend package="cob_teleop"/>
   <depend package="ipa_canopen_ros"/>
+  <depend package="rviz"/>
   
 </package>
-
-

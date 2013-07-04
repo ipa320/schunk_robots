@@ -23,7 +23,4 @@
         <rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa/config/teleop_lwa.yaml"/>
     </node>
 
-    <!-- launch rviz -->
-    <include file="$(find schunk_bringup_sim)/launch/rviz.launch" />
-	
 </launch>

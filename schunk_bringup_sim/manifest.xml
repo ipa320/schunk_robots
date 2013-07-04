@@ -13,5 +13,6 @@
   <depend package="schunk_controller_configuration_gazebo"/>
   <depend package="gazebo"/>
   <depend package="gazebo_worlds"/>
+  <depend package="cob_teleop"/>
 
 </package>
