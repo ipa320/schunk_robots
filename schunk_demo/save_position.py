@@ -121,7 +121,10 @@ class save_pose:
         
         if(pose_exists):
             c_pose = rospy.get_param(self.param)
-            rospy.loginfo("Pose Exists")
+            rospy.loginfo("Pose exists, updating pose.")
+            self.update_params()
+        else:
+            rospy.loginfo("New pose set.")
             self.update_params()
             
     def update_params(self):
