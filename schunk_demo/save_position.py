@@ -91,6 +91,15 @@ class save_pose:
                 sys.exit()
             elif opt in ("-p", "--pose"):
                 self.pose = arg
+            else:
+                print 'Invalid syntax, please use "python save_position.py -p <posename>"'
+        
+        rospy.loginfo(self.pose)
+
+        if self.pose == '':
+            rospy.logerr("posename cannot be empty")
+            print 'python save_position.py -p <posename>'
+            sys.exit()
         
         rospy.loginfo(self.pose)
         
