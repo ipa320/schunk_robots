@@ -11,7 +11,7 @@
     <include file="$(find schunk_hardware_config)/lwa/urdf/upload_lwa.launch" />
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
-    <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa -z 0.1 " respawn="false" output="screen" />
+    <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa -z 0.01 " respawn="false" output="screen" />
 
     <!-- controller manager -->
     <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
@@ -19,8 +19,6 @@
     <!-- lwa controllers -->
     <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/lwa_controller.launch" />
 
-    <node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
-        <rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa/config/teleop_lwa.yaml"/>
-    </node>
+    <include file="$(find schunk_bringup)/tools/teleop.launch" />
 
 </launch>
