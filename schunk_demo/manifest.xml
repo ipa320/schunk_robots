@@ -1,0 +1,16 @@
+<package>
+  <description brief="schunk_demo">
+
+     schunk_arm_navigation
+
+  </description>
+  <author>Thiago de Freitas</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_arm_navigation</url>
+
+  <depend package="rospy"/>
+  <depend package="cob_script_server"/>
+  <depend package="pr2_controllers_msgs"/>
+
+</package>

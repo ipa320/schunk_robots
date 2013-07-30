@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- upload script server parameters -->
-	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/lwa_joint_configurations.yaml"/>
+    <!-- startup lwa -->
+    <node name="arm_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
+        <rosparam command="load" file="$(find schunk_hardware_config)/lwa/config/lwa.yaml"/>
+    </node>
 
-	<!-- startup lwa -->
-	<node name="arm_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
-		<rosparam command="load" file="$(find schunk_hardware_config)/lwa/config/lwa.yaml"/>
-	</node>
-	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+    <node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+    <node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
+        <rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa/config/teleop_lwa.yaml"/>
+    </node>
 
 </launch>
