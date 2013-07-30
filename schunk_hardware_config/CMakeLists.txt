@@ -36,5 +36,5 @@ rosbuild_add_rostest(lwa/test/urdf.test)
 rosbuild_add_roslaunch_check(sdh/urdf)
 rosbuild_add_rostest(sdh/test/urdf.test)
 
-rosbuild_add_roslaunch_check(powerball/urdf)
-rosbuild_add_rostest(powerball/test/urdf.test)
+rosbuild_add_roslaunch_check(lwa4p/urdf)
+rosbuild_add_rostest(lwa4p/test/urdf.test)
