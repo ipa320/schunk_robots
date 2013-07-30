@@ -19,8 +19,6 @@
     <!-- lwa4p controllers -->
     <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/lwa4p_controller.launch" />
 
-    <node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
-        <rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa4p/config/teleop_lwa4p.yaml"/>
-    </node>
+    <include file="$(find schunk_bringup)/tools/teleop.launch" />
 
 </launch>
