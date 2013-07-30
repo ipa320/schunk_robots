@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <!-- parameters for canopenmaster node -->
+    <rosparam command="load" ns="canopen" file="$(find schunk_hardware_config)/lwa4p/config/canopenmaster.yaml" />
+
+    <!-- parameter description of the CAN modules and for the corresponding trajectory controller -->
+    <rosparam command="load" ns="arm_controller" file="$(find schunk_hardware_config)/lwa4p/config/lwa4p.yaml" />
+
+    <!-- This is the CANopen ROS wrapper node -->
+    <node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="canopen_ros" cwd="node" respawn="false" output="screen" /> 
+
+    <!-- The trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
+    <node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+
+    <node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
+        <rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/lwa4p/config/teleop_lwa4p.yaml"/>
+    </node>
+
+</launch>
