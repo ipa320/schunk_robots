@@ -62,7 +62,7 @@ import rospy
 
 from simple_script_server import *
 
-class powerball_arm:
+class lwa4p_arm:
     
     def __init__(self):
        
@@ -76,8 +76,8 @@ class powerball_arm:
 
 if __name__=="__main__":
 
-    rospy.init_node("powerball_arm")
-    pball = powerball_arm()
+    rospy.init_node("lwa4p_arm")
+    pball = lwa4p_arm()
     r = rospy.Rate(10)
     
     while not rospy.is_shutdown():
