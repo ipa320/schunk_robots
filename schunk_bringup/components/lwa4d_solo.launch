@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- upload robot_description -->
-    <include file="$(find schunk_hardware_config)/lwa4d/urdf/upload_lwa4d.launch" />
+	<!-- upload robot_description -->
+	<include file="$(find schunk_hardware_config)/lwa4d/urdf/upload_lwa4d.launch" />
 
-    <!-- start robot_state_publisher -->
-    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
-    <!-- upload joint configuration -->
-    <include file="$(find schunk_default_config)/launch/upload_param_lwa4d.launch" />
+	<!-- upload joint configuration -->
+	<include file="$(find schunk_default_config)/launch/upload_param_lwa4d.launch" />
 
-    <!-- start arm -->
-    <include file="$(find schunk_bringup)/components/lwa4d.launch" />
+	<!-- start arm -->
+	<include file="$(find schunk_bringup)/components/lwa4d.launch" />
 
 </launch>
