@@ -7,8 +7,8 @@
 	</node>
 
 	<node pkg="cob_teleop" type="cob_teleop" name="$(anon teleop_node)" ns="teleop" output="screen">
-		<remap from="/cmd_vel" to="/base_controller/command" />
-		<remap from="/cmd_vel_safety" to="/base_controller/command_safe" />
+		<!--remap from="/cmd_vel" to="/base_controller/command" />
+		<remap from="/cmd_vel_safety" to="/base_controller/command_safe" /-->
 		<rosparam command="load" ns="/robot_config" file="$(find schunk_hardware_config)/common/robot_modules.yaml"/>
 		<rosparam command="load" ns="/teleop" file="$(find schunk_hardware_config)/common/teleop.yaml"/>
 	</node>
