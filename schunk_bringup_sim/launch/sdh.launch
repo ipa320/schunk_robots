@@ -5,13 +5,13 @@
     <rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
 
     <!-- launch an empty world -->
-    <include file="$(find gazebo_worlds)/launch/empty_world.launch" />
+    <include file="$(find cob_gazebo_worlds)/launch/empty.launch" />
 
     <!-- send lwa urdf to param server -->
     <include file="$(find schunk_hardware_config)/sdh/urdf/upload_sdh.launch" />
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
-    <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model sdh -z 0.1 " respawn="false" output="screen" />
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model sdh -z 0.1 " respawn="false" output="screen" />
 
     <!-- controller manager -->
     <include file="$(find schunk_controller_configuration_gazebo)/ros/launch/controller_manager.launch" />
