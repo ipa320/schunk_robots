@@ -1,20 +1,17 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+<robot xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        name="lwa4p" >
 
   <!-- common stuff -->
-  <include filename="$(find cob_description)/urdf/common.xacro" />
-  <include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
-  <include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
 
   <!-- calibration -->
-  <include filename="$(find schunk_hardware_config)/lwa4p/calibration/calibration.urdf.xacro" />
+  <xacro:include filename="$(find schunk_hardware_config)/lwa4p/calibration/calibration.urdf.xacro" />
 
   <!-- schunk lwa4p -->
-  <include filename="$(find schunk_description)/urdf/lwa4p/lwa4p.urdf.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/lwa4p/lwa4p.urdf.xacro" />
 
   <!-- foot for arm -->
 	<link name="base_link">
