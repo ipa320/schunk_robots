@@ -21,5 +21,6 @@
   <depend package="cob_teleop"/>
   <depend package="ipa_canopen_ros"/>
   <depend package="rviz"/>
+  <depend package="joy"/>
   
 </package>
