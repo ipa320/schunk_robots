@@ -7,9 +7,9 @@
     <!-- launch an empty world -->
     <include file="$(find gazebo_worlds)/launch/empty_world.launch" />
 
-    <!-- send lwa4p urdf to param server -->
-    <include file="$(find schunk_lwa4p)/launch/upload_lwa4p.launch" />
-
+     <!-- send lwa4p urdf to param server -->
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
+	
     <!-- push robot_description to factory and spawn robot in gazebo -->
     <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa4p -z 0.01 " respawn="false" output="screen" />
 
@@ -28,6 +28,6 @@
         <node name="arm_joint_trajectory_action_node" pkg="joint_trajectory_action" type="joint_trajectory_action" />
     </group>
 
-    <include file="$(find schunk_lwa4p)/teleop.launch" />
+    <include file="$(find schunk_lwa4p)/launch/teleop.launch" />
 
 </launch>
