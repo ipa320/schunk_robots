@@ -1,0 +1,15 @@
+<package>
+  <description brief="schunk_lwa4p">
+
+     schunk_lwa4p
+
+  </description>
+  <author>Thiago de Freitas</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/schunk_lwa4p</url>
+  <depend package="ipa_canopen_ros"/>
+
+</package>
+
+
