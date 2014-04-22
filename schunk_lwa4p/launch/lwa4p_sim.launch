@@ -1,33 +1,39 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- upload script server parameters -->
-    <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/lwa4p_joint_configurations.yaml"/>
-
     <!-- launch an empty world -->
     <include file="$(find gazebo_worlds)/launch/empty_world.launch" />
 
      <!-- send lwa4p urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
 	
-    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <!-- spawn robot in gazebo -->
     <node name="spawn_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model lwa4p -z 0.01 " respawn="false" output="screen" />
 
-    <!-- Controller Manager -->
-    <include file="$(find pr2_controller_manager)/controller_manager.launch" />
+    <!-- robot state publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
 
-     <!-- Fake Calibration -->
-    <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
-        args="pub /calibrated std_msgs/Bool true" />
+    <!-- Fake Calibration -->
+    <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true" />
 
-    <rosparam file="$(find schunk_lwa4p)/controller/lwa4p_controller.yaml" command="load"/>
-
+    <!-- load controller -->
+    <rosparam file="$(find schunk_lwa4p)/config/controller_sim.yaml" command="load"/>
     <node name="arm_controller_spawner" pkg="pr2_controller_manager" type="spawner" args="arm_controller" />
-
     <group ns="arm_controller">
         <node name="arm_joint_trajectory_action_node" pkg="joint_trajectory_action" type="joint_trajectory_action" />
     </group>
+    
+    <!-- start diagnostics -->
+    <node pkg="pr2_mechanism_diagnostics" type="pr2_mechanism_diagnostics" name="pr2_mechanism_diagnostics" />
+    <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+        <rosparam command="load" file="$(find schunk_lwa4p)/config/diagnostics_analyzers.yaml" />
+    </node>
+    <node pkg="pr2_dashboard_aggregator" type="dashboard_aggregator.py" name="dashboard_aggregator" />
 
-    <include file="$(find schunk_lwa4p)/launch/teleop.launch" />
+    <!-- upload script server parameters -->
+    <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/joint_configurations.yaml"/>
 
 </launch>

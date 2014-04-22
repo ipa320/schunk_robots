@@ -4,26 +4,22 @@
     <!-- send lwa4p urdf to param server -->
 	<param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
 	
-	<!-- start robot_state_publisher -->
+    <!-- robot state publisher -->
 	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
-	
-	<!-- send ROBOT parameters to parameter server -->
-	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/lwa4p_joint_configurations.yaml"/>
-	
+
 	<!-- parameters for canopenmaster node -->
-	<rosparam command="load" ns="canopen" file="$(find schunk_lwa4p)/config/lwa4p_canopen.yaml" />
+	<rosparam command="load" ns="canopen" file="$(find schunk_lwa4p)/config/canopen.yaml" />
 
 	<!-- parameter description of the CAN modules and for the corresponding trajectory controller -->
-	<rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/lwa4p.yaml" />
+	<rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/controller.yaml" />
 
-	<!-- This is the CANopen ROS wrapper node -->
+	<!-- this is the CANopen ROS wrapper node -->
 	<node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="canopen_ros" cwd="node" respawn="false" output="screen" /> 
 
-	<!-- The trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
+	<!-- the trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
 
-	<!-- teleop -->
-	<include file="$(find schunk_lwa4p)/launch/teleop.launch" />
-
+    <!-- upload script server parameters -->
+    <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/joint_configurations.yaml"/>
 
 </launch>
