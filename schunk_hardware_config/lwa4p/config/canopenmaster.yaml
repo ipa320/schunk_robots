@@ -6,3 +6,7 @@ devices:
 #   baudrate: 1M
 #   sync_interval: 5
 chains: ["arm_controller"]
+
+device: /dev/pcan32
+baudrate: 500K
+sync_interval: 5
