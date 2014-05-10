@@ -2,7 +2,7 @@
   <name>schunk_controller_configuration_gazebo</name>
   <version>0.1.3</version>
   <description>This packages provides the controller configuration for simulating Schunk components in the gazebo simulator.</description>
-  <maintainer email="">Nadia Hammoudeh Garcia</maintainer>
+  <maintainer email="nadia.hammoudeh.garcia@ipa.fraunhofer.de">Nadia Hammoudeh Garcia</maintainer>
 
   <license>LGPL</license>
 
@@ -25,11 +25,5 @@
   <run_depend>pr2_controller_manager</run_depend>
   <run_depend>joint_trajectory_action</run_depend>
   <run_depend>schunk_simulated_tactile_sensors</run_depend>
-
-  <!-- Dependencies needed only for running tests. -->
-  <!-- <test_depend>rostopic</test_depend> -->
-  <!-- <test_depend>pr2_controller_manager</test_depend> -->
-  <!-- <test_depend>joint_trajectory_action</test_depend> -->
-  <!-- <test_depend>schunk_simulated_tactile_sensors</test_depend> -->
 
 </package>

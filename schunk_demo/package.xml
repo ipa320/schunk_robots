@@ -2,7 +2,7 @@
   <name>schunk_demo</name>
   <version>0.1.3</version>
   <description>schunk_arm_navigation</description>
-  <maintainer email="">Thiago de Freitas</maintainer>
+  <maintainer email="thiagodefreitas@gmail.com">Thiago de Freitas</maintainer>
 
   <license>LGPL</license>
 
@@ -23,10 +23,5 @@
   <run_depend>rospy</run_depend>
   <run_depend>cob_script_server</run_depend>
   <run_depend>pr2_controllers_msgs</run_depend>
-
-  <!-- Dependencies needed only for running tests. -->
-  <!-- <test_depend>rospy</test_depend> -->
-  <!-- <test_depend>cob_script_server</test_depend> -->
-  <!-- <test_depend>pr2_controllers_msgs</test_depend> -->
 
 </package>
