@@ -1,0 +1,23 @@
+<package>
+  <name>schunk_default_config</name>
+  <version>0.1.3</version>
+  <description>Default configuration of the different Schunk components. Configuration is e.g. preconfigured joint positions.</description>
+  <maintainer email="">Nadia Hammoudeh Garcia</maintainer>
+
+  <license>LGPL</license>
+
+  <url type="website">http://ros.org/wiki/schunk_default_config</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Nadia Hammoudeh Garcia</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+
+  <!-- Dependencies needed after this package is compiled. -->
+
+  <!-- Dependencies needed only for running tests. -->
+
+</package>
