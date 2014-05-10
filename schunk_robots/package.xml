@@ -1,0 +1,35 @@
+<package>
+  <name>schunk_robots</name>
+  <version>0.1.3</version>
+  <description>This stack holds packages for hardware configuration as well as launch files for starting up Schunk components.</description>
+  <maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
+
+  <license>LGPL</license>
+
+  <url type="website">http://ros.org/wiki/schunk_robot</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Maintained by Florian Weisshardt</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>schunk_default_config</run_depend>
+  <run_depend>schunk_demo</run_depend>
+  <run_depend>schunk_hardware_config</run_depend>
+  <run_depend>schunk_bringup</run_depend>
+  <run_depend>schunk_controller_configuration_gazebo</run_depend>
+  <run_depend>schunk_bringup_sim</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+
+
+ <export>
+   <metapackage />
+ </export>
+
+</package>
