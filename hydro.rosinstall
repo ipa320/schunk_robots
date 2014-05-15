@@ -1,28 +1,28 @@
 - git:
     uri: 'git://github.com/ipa320/cob_command_tools.git'
     local-name: cob_command_tools
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/cob_common.git'
     local-name: cob_common
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/cob_driver.git'
     local-name: cob_driver
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/cob_extern.git'
     local-name: cob_extern
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/schunk_modular_robotics.git'
     local-name: schunk_modular_robotics
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/ipa_canopen.git'
     local-name: ipa_canopen
-    version: electric_dev
+    version: hydro_dev
 - git:
     uri: 'git://github.com/ipa320/schunk_robots.git'
     local-name: schunk_robots
-    version: electric_dev
+    version: hydro_dev

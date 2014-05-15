@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-  <test test-name="lwa_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_hardware_config)/lwa/urdf/lwa.urdf.xacro"/>
-
-</launch> 
