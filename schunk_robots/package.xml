@@ -1,0 +1,23 @@
+<package>
+  <name>schunk_robots</name>
+  <version>0.5.0</version>
+  <description>
+  
+    This stack holds packages for hardware configuration as well as launch files for starting up Schunk components.
+
+  </description>
+  <license>LGPL</license>  
+  
+  <url type="website">http://ros.org/wiki/schunk_robots</url> 
+ 
+  <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
+  <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>schunk_lwa4p</run_depend>
+  <run_depend>schunk_lwa4p_extended</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
