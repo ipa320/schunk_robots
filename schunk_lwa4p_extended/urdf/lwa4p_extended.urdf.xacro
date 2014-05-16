@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       name="lwa4p" >
+       name="lwa4p_extended" >
 
   <!-- common stuff -->
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
@@ -8,10 +8,10 @@
   <xacro:include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
 
   <!-- calibration -->
-  <xacro:include filename="$(find schunk_lwa4p)/calibration/calibration.urdf.xacro" />
+  <xacro:include filename="$(find schunk_lwa4p_extended)/calibration/calibration.urdf.xacro" />
 
-  <!-- schunk lwa4p -->
-  <xacro:include filename="$(find schunk_description)/urdf/lwa4p/lwa4p.urdf.xacro" />
+  <!-- schunk lwa4p_extended -->
+  <xacro:include filename="$(find schunk_description)/urdf/lwa4p_extended/lwa4p_extended.urdf.xacro" />
 
   <!-- foot for arm -->
   <link name="base_link">
@@ -38,8 +38,15 @@
   </link>
 
   <!-- arm -->
-  <xacro:schunk_lwa4p name="arm" parent="base_link">
+  <xacro:schunk_lwa4p_extended name="arm" parent="base_link"            
+            arm_1_ref="${arm_1_ref}"
+            arm_2_ref="${arm_2_ref}" 
+            arm_3_ref="${arm_3_ref}" 
+            arm_4_ref="${arm_4_ref}" 
+            arm_5_ref="${arm_5_ref}" 
+            arm_6_ref="${arm_6_ref}" 
+            arm_7_ref="${arm_7_ref}">
     <origin xyz="0 0 0.5" rpy="0 0 0" />
-  </xacro:schunk_lwa4p>
+  </xacro:schunk_lwa4p_extended>
 
 </robot>
