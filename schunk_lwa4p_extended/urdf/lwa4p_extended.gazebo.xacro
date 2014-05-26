@@ -3,7 +3,7 @@
 
   <xacro:macro name="schunk_lwa4p_extended_gazebo" params="name">
 
-    <gazebo reference="${name}_0_link">
+    <gazebo reference="${name}_base_link">
       <material value="Schunk/LightGrey" />
       <turnGravityOff>false</turnGravityOff>
       <selfCollide>true</selfCollide>
