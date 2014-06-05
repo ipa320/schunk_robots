@@ -24,11 +24,9 @@
   <run_depend>cob_trajectory_controller</run_depend>
   <run_depend>gazebo_ros</run_depend>
   <run_depend>rostopic</run_depend>
-  <run_depend>joint_trajectory_action</run_depend>
   <run_depend>diagnostic_aggregator</run_depend>
   <run_depend>pr2_dashboard_aggregator</run_depend>
-  <run_depend>pr2_controller_manager</run_depend>
-  <run_depend>pr2_mechanism_diagnostics</run_depend>
+  <run_depend>controller_manager</run_depend>
 
   <export>
 
