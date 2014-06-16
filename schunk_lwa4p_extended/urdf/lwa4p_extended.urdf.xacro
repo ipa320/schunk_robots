@@ -7,7 +7,6 @@
     
   <xacro:macro name="schunk_lwa4p_extended" params="parent name *origin arm_1_ref arm_2_ref arm_3_ref arm_4_ref arm_5_ref arm_6_ref arm_7_ref">
 
-
     <!-- joint between base_link and lwa4p_extended_connector_link -->
     <joint name="${name}_base_joint" type="fixed">
       <insert_block name="origin" />
@@ -269,8 +268,6 @@
         </geometry>
       </collision>
     </link-->
-
-
 
     <!-- extensions -->
     <xacro:schunk_lwa4p_extended_gazebo name="${name}" />
