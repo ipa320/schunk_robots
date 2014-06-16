@@ -5,7 +5,7 @@
 
 <!--
 	Gazebo tags example for links
-	<gazebo reference="namek">
+	<gazebo reference="name">
       <material value="Schunk/LightGrey"/>      
       <selfCollide>true</selfCollide>
       <gravity>false</gravity>
@@ -86,37 +86,37 @@
 		<stopCfm>1</stopCfm>
 		<stopErp>1</stopErp>
 		<provideFeedback>1</provideFeedback>
-		<cfmDamping>1</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
 		<fudgeFactor>1</fudgeFactor>
     </gazebo>
 -->
     
     <gazebo reference="${name}_1_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_2_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_3_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_4_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_5_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_6_joint">
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_7_joint">		
-		<cfmDamping>true</cfmDamping>
+		<implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
   </xacro:macro>
