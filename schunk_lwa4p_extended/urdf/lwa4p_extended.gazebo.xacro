@@ -1,26 +1,25 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">	
   <xacro:macro name="schunk_lwa4p_extended_gazebo" params="name">
 
-<!--
-	Gazebo tags example for links
-	<gazebo reference="namek">
-      <material value="Schunk/LightGrey"/>      
-      <selfCollide>true</selfCollide>
-      <gravity>false</gravity>
-      <dampingFactor>1</dampingFactor> 
-      <maxVel>1.0</maxVel>      
-      <minDepth>0.0</minDepth> 
-      <mu1>1</mu1> 
-      <mu2>1</mu2> 
-      <fdir1>1 0 0</fdir1> 
-      <kp>1000000</kp> 
-      <kd>100</kd> 
-      <maxContacts>50</maxContacts> 
-      <laserRetro>1</laserRetro> 
-    </gazebo>
--->
+    <!--
+      Gazebo tags example for links
+      <gazebo reference="name">
+        <material value="Schunk/LightGrey"/>      
+        <selfCollide>true</selfCollide>
+        <gravity>false</gravity>
+        <dampingFactor>1</dampingFactor> 
+        <maxVel>1.0</maxVel>      
+        <minDepth>0.0</minDepth> 
+        <mu1>1</mu1> 
+        <mu2>1</mu2> 
+        <fdir1>1 0 0</fdir1> 
+        <kp>1000000</kp> 
+        <kd>100</kd> 
+        <maxContacts>50</maxContacts> 
+        <laserRetro>1</laserRetro> 
+      </gazebo>
+    -->
 
     <gazebo reference="${name}_base_link">
       <material value="Schunk/LightGrey"/>      
@@ -80,43 +79,43 @@
       <mu2>1</mu2> <!--double, as in reemc_foot-->         
     </gazebo>
     
-<!--
-	Gazebo tags example for joints
+    <!--
+    Gazebo tags example for joints
     <gazebo reference="name">
-		<stopCfm>1</stopCfm>
-		<stopErp>1</stopErp>
-		<provideFeedback>1</provideFeedback>
-		<cfmDamping>1</cfmDamping>
-		<fudgeFactor>1</fudgeFactor>
+      <stopCfm>1</stopCfm>
+      <stopErp>1</stopErp>
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+      <fudgeFactor>1</fudgeFactor>
     </gazebo>
--->
+    -->
     
     <gazebo reference="${name}_1_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_2_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_3_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_4_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_5_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_6_joint">
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_7_joint">		
-		<cfmDamping>true</cfmDamping>
+      <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     
   </xacro:macro>
