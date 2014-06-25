@@ -16,6 +16,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>schunk_lwa4p</run_depend>
   <run_depend>schunk_lwa4p_extended</run_depend>
+  <run_depend>schunk_lwa4p_extended_moveit_config</run_depend>
 
   <export>
     <metapackage/>
