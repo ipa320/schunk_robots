@@ -2,5 +2,10 @@
   <rosparam file="$(find schunk_lwa4p_extended_moveit_config)/config/controllers.yaml"/>
   <param name="use_controller_manager" value="false"/>
   <!--param name="trajectory_execution/execution_duration_monitoring" value="false"/-->
+  <node name="dynamic_reconfigure_monitor" pkg="dynamic_reconfigure" type="dynparam" args="set /move_group/trajectory_execution execution_duration_monitoring false" />
+  <!--node name="dynamic_reconfigure_duration" pkg="dynamic_reconfigure" type="dynparam" args="set /move_group/trajectory_execution allowed_execution_duration_scaling 4.0" /-->
+  <!--node name="dynamic_reconfigure_velocity" pkg="dynamic_reconfigure" type="dynparam" args="set /move_group/trajectory_execution execution_velocity_scaling 2.0" /-->
+  <!--node name="dynamic_reconfigure_planning_scene" pkg="dynamic_reconfigure" type="dynparam" args="set /move_group/planning_scene_monitor publish_planning_scene_hz 24.0" /-->
+
   <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
 </launch>
