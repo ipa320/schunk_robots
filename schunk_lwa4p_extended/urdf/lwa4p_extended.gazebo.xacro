@@ -24,59 +24,59 @@
     <gazebo reference="${name}_base_link">
       <material value="Schunk/LightGrey"/>      
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>           
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->      
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->      
     </gazebo>
 
     <gazebo reference="${name}_1_link">
       <material value="Schunk/LightGrey" />     
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>      
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->            
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->            
     </gazebo>
 
     <gazebo reference="${name}_2_link">		      
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>      
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->           
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->           
     </gazebo>
 
     <gazebo reference="${name}_3_link">      
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>            
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->      
+      <!--gravity>false</gravity-->            
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->      
     </gazebo>
 
     <gazebo reference="${name}_4_link">      
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>      
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->      
+      <!--gravity>false</gravity-->      
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->      
     </gazebo>
 
     <gazebo reference="${name}_5_link">
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->            
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->            
     </gazebo>
 
     <gazebo reference="${name}_6_link">      
       <selfCollide>true</selfCollide>
-      <gravity>false</gravity>            
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->      
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->      
     </gazebo>
 
     <gazebo reference="${name}_7_link">
       <material value="Schunk/LightGrey" />      
-      <gravity>false</gravity>      
-      <mu1>1</mu1> <!--double, as in reemc_foot-->
-      <mu2>1</mu2> <!--double, as in reemc_foot-->         
+      <!--gravity>false</gravity-->
+      <mu1>0.5</mu1> <!--double, as in reemc_foot-->
+      <mu2>0.5</mu2> <!--double, as in reemc_foot-->         
     </gazebo>
     
     <!--
@@ -91,31 +91,31 @@
     -->
     
     <gazebo reference="${name}_1_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_2_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_3_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_4_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_5_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_6_joint">
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
     <gazebo reference="${name}_7_joint">		
-      <implicitSpringDamper>1</implicitSpringDamper>
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
     
   </xacro:macro>
