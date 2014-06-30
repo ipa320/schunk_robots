@@ -11,7 +11,7 @@
   <xacro:include filename="$(find schunk_lwa4p_extended)/calibration/calibration.urdf.xacro" />
 
   <!-- schunk lwa4p_extended -->
-  <xacro:include filename="$(find schunk_lwa4p_extended)/urdf/lwa4p_extended.urdf.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/lwa4p_extended/lwa4p_extended.urdf.xacro" />
   
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
