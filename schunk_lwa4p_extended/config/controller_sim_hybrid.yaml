@@ -36,8 +36,7 @@ arm_1_joint_position_controller:
 arm_2_joint_position_controller:
   type: effort_controllers/JointPositionController
   joint: arm_2_joint
-  #pid: {p: 900.0, i: 0.0, d: 30.0, i_clamp: 1.0}
-  pid: {p: 900.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  pid: {p: 240.0, i: 640.0, d: 22.5, i_clamp: 48.0}
 arm_3_joint_position_controller:
   type: effort_controllers/JointPositionController
   joint: arm_3_joint
@@ -78,28 +77,34 @@ arm_7_joint_position_controller:
 arm_1_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_1_joint
+  #pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 arm_2_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_2_joint
-  pid: {p: 300.0, i: 20.0, d: 0.0, i_clamp: 80.0}
+  pid: {p: 5000.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 arm_3_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_3_joint
+  #pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 arm_4_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_4_joint
+  #pid: {p: 60.0, i: 5.0, d: 0.0, i_clamp: 20.0}
   pid: {p: 60.0, i: 5.0, d: 0.0, i_clamp: 20.0}
 arm_5_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_5_joint
+  #pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 arm_6_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_6_joint
+  #pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 arm_7_joint_velocity_controller:
   type: effort_controllers/JointVelocityController
   joint: arm_7_joint
+  #pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
