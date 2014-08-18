@@ -25,7 +25,7 @@ arm_controller:
   pid_rot: {p: 2.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   update_rate: 68.0
   max_vel_lin: 10.0
-  max_vel_rot: 6.28
+  max_vel_rot: 6.28    
   
   type: velocity_controllers/JointTrajectoryController
   topic: "test"
@@ -122,9 +122,8 @@ arm_7_joint_velocity_controller:
 #the arm_2_joint just cannot be velocity controlled somehow
 #thus, let it be effort controlled by the gazebo_ros_control plugin internally
 #by setting the following PID the control mode switches from VELOCITY (=SetVelocity) to VELOCITY_PID (=SetForce)!
-#gazebo_ros_control/pid_gains:
-  ##arm_2_joint: {p: 300.0, i: 0.0, d: 0.0}
-  ##arm_2_joint: {p: 380.0, i: 0, d: 0}
-  #arm_2_joint: {p: 180.0, i: 360000, d: 0.0225}
+gazebo_ros_control/pid_gains:
+  #arm_2_joint: {p: 300.0, i: 0.0, d: 0.0}
+  arm_2_joint: {p: 380.0, i: 0, d: 0}
   #Ziegler-Nichols: K_u=300 T_u=0.001
   
