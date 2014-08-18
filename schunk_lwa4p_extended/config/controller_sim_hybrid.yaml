@@ -65,7 +65,6 @@ arm_7_joint_position_controller:
   #Ziegler-Nichols K_u = 300, T_u = 0.036 / D value tweaked
 
 
-
 #velocity controller
 #arm_velocity_pid_gains: &arm_velocity_pid_gains
   #p: 2000.0

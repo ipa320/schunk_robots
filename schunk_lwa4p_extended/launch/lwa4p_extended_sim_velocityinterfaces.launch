@@ -4,7 +4,7 @@
 
     <!-- start gazebo with empty world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="paused" value="$(arg paused)" />
+        <arg name="paused" value="false" />
     </include>
 
     <!-- send lwa4p_extended urdf to param server -->
@@ -33,6 +33,7 @@
     
     <node ns="arm_controller" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
     
+    <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" />    
     
     <!-- Cartesian stuff -->
     <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
