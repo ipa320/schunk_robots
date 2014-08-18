@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="paused" default="false"/>
+
+    <!-- start gazebo with empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false" />
+    </include>
+
+    <!-- send lwa4d urdf to param server -->
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
+    
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model lwa4d -z 0.01 " respawn="false" output="screen" />
+
+    <!-- robot state publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+
+    <!-- fake Calibration -->
+    <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- load controller -->
+    <rosparam file="$(find schunk_lwa4d)/config/joint_state_controller.yaml" command="load"/>
+    <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" />
+
+    <!-- velocity controllers -->
+    <rosparam command="load" file="$(find schunk_lwa4d)/config/controller_sim_velocityinterfaces.yaml"/>
+    
+    <node ns="arm_controller" name="cob_controller_adapter_gazebo" pkg="cob_controller_configuration_gazebo" type="cob_controller_adapter_gazebo.py" cwd="node" respawn="false" output="screen"/>
+    
+    <node ns="arm_controller" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
+    
+    <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" />    
+    
+    <!-- Cartesian stuff -->
+    <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
+    
+    <node ns="arm_controller" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
+    
+    <node ns="arm_controller" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
+    
+    
+    <!-- start diagnostics -->
+    <node pkg="pr2_mechanism_diagnostics" type="pr2_mechanism_diagnostics" name="pr2_mechanism_diagnostics" />
+    <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+        <rosparam command="load" file="$(find schunk_lwa4d)/config/diagnostics_analyzers.yaml" />
+    </node>
+    <node pkg="pr2_dashboard_aggregator" type="dashboard_aggregator.py" name="dashboard_aggregator" />
+
+    <!-- upload script server parameters -->
+    <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4d)/config/joint_configurations.yaml"/>
+
+</launch>
