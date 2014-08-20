@@ -2,7 +2,7 @@ pub_rate: 1.0 # Optional
 base_path: '' # Optional, prepended to all diagnostic output
 analyzers:
   motors:
-    type: AnalyzerGroup
+    type: diagnostic_aggregator/AnalyzerGroup
     path: Actuators
     analyzers:
       arm:
@@ -12,10 +12,10 @@ analyzers:
         
 ## remove diagnostics from gazebo in simulated case
   simulation:
-    type: DiscardAnalyzer
+    type: diagnostic_aggregator/DiscardAnalyzer
     path: none
     contains: 'joint'
   simulation2:
-    type: DiscardAnalyzer
+    type: diagnostic_aggregator/DiscardAnalyzer
     path: none
     contains: 'Controller'
