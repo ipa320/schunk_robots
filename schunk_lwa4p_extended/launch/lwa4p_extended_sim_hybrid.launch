@@ -42,11 +42,10 @@
     
     
     <!-- start diagnostics -->
-    <node pkg="pr2_mechanism_diagnostics" type="pr2_mechanism_diagnostics" name="pr2_mechanism_diagnostics" />
     <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
         <rosparam command="load" file="$(find schunk_lwa4p_extended)/config/diagnostics_analyzers.yaml" />
     </node>
-    <node pkg="pr2_dashboard_aggregator" type="dashboard_aggregator.py" name="dashboard_aggregator" />
+    <node pkg="cob_dashboard" type="cob_dashboard_aggregator.py" name="dashboard_aggregator" />
 
     <!-- upload script server parameters -->
     <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p_extended)/config/joint_configurations.yaml"/>
