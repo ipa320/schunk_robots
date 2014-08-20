@@ -3,9 +3,9 @@
        name="lwa4d" >
 
   <!-- common stuff -->
-  <xacro:include filename="$(find schunk_lwa4d)/urdf/common.xacro" />
-  <xacro:include filename="$(find schunk_lwa4d)/urdf/materials.urdf.xacro" />
-  <xacro:include filename="$(find schunk_lwa4d)/urdf/gazebo.urdf.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/gazebo.urdf.xacro" />
 
   <!-- calibration -->
   <xacro:include filename="$(find schunk_lwa4d)/calibration/calibration.urdf.xacro" />

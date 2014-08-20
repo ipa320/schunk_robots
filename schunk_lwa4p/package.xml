@@ -25,7 +25,7 @@
   <run_depend>gazebo_ros</run_depend>
   <run_depend>rostopic</run_depend>
   <run_depend>diagnostic_aggregator</run_depend>
-  <run_depend>pr2_dashboard_aggregator</run_depend>
+  <run_depend>cob_dashboard</run_depend>
   <run_depend>controller_manager</run_depend>
 
   <export>
