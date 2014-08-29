@@ -17,7 +17,14 @@
   <link name="world"/>
 
   <!-- arm -->
-  <xacro:schunk_lwa4d name="arm" parent="world">
+  <xacro:schunk_lwa4d name="arm" parent="world"            
+            arm_1_ref="${arm_1_ref}"
+            arm_2_ref="${arm_2_ref}" 
+            arm_3_ref="${arm_3_ref}" 
+            arm_4_ref="${arm_4_ref}" 
+            arm_5_ref="${arm_5_ref}" 
+            arm_6_ref="${arm_6_ref}" 
+            arm_7_ref="${arm_7_ref}">
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:schunk_lwa4d>
 

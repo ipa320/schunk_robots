@@ -4,7 +4,7 @@
 
     <!-- start gazebo with empty world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="paused" value="false" />
+        <arg name="paused" value="$(arg paused)" />
     </include>
 
     <!-- send lwa4p_extended urdf to param server -->
@@ -33,12 +33,10 @@
     
     <!-- joint trajectory controller -->
     <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" /-->
-<!--
     <include file="$(find cob_hardware_interface)/launch/cob_hardware_interface.launch">
         <arg name="component_name" value="arm"/>
         <arg name="side" value=""/>
     </include>
--->
     
     <!-- Cartesian stuff -->
     <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
