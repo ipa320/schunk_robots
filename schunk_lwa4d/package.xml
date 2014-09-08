@@ -1,16 +1,16 @@
 <package>
-  <name>schunk_lwa4p_extended</name>
+  <name>schunk_lwa4d</name>
   <version>0.5.0</version>
 
   <description>
 
-     schunk_lwa4p_extended
+     schunk_lwa4d
 
   </description>
   
   <license>LGPL</license>
   
-  <url type="website">http://ros.org/wiki/schunk_lwa4p_extended</url>
+  <url type="website">http://ros.org/wiki/schunk_lwa4d</url>
   <author email="fxm-fm@ipa.fhg.de">Francisco Moreno</author>
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
 
