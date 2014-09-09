@@ -14,7 +14,7 @@
 	<rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/controller.yaml" />
 
 	<!-- this is the CANopen ROS wrapper node -->
-	<node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="canopen_ros" cwd="node" respawn="false" output="screen" /> 
+	<node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="ipa_canopen_ros" cwd="node" respawn="false" output="screen" /> 
 
 	<!-- the trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
 	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
