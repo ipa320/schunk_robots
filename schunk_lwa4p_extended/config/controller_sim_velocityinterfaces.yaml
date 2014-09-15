@@ -21,8 +21,8 @@ arm_controller:
   root_frame: world
   movable_trans: true
   movable_rot: true
-  pid_trans: {p: 2.0, i: 0.0, d: 0.0, i_clamp: 0.0}
-  pid_rot: {p: 2.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  pid_trans: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
+  pid_rot: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
   update_rate: 68.0
   max_vel_lin: 10.0
   max_vel_rot: 6.28    
