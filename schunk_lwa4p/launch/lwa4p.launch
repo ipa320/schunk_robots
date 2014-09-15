@@ -1,31 +1,29 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- send lwa4p urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
-	
-    <!-- robot state publisher -->
-	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+  <!-- send lwa4p urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/lwa4p.urdf.xacro'" />
 
-	<!-- parameters for canopenmaster node -->
-	<rosparam command="load" ns="canopen" file="$(find schunk_lwa4p)/config/canopen.yaml" />
+  <!-- robot state publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
-	<!-- parameter description of the CAN modules and for the corresponding trajectory controller -->
-	<rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/controller.yaml" />
+  <!-- parameters for CANopen node -->
+  <rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/arm_driver.yaml" />
+  <!-- This is the CANopen ROS wrapper node -->
+  <node ns="arm_controller" name="arm_canopen_ros" pkg="ipa_canopen_ros" type="ipa_canopen_ros" cwd="node" respawn="false" output="screen" />
 
-	<!-- this is the CANopen ROS wrapper node -->
-	<node ns="canopen" name="canopen_ros" pkg="ipa_canopen_ros" type="canopen_ros" cwd="node" respawn="false" output="screen" /> 
+  <!-- parameter description of the trajectory controller -->
+  <rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p)/config/arm_controller.yaml" />
+  <!-- The trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
+  <node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
 
-	<!-- the trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
-	<node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
+  <!-- start diagnostics -->
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+    <rosparam command="load" file="$(find schunk_lwa4p)/config/diagnostics_analyzers.yaml" />
+  </node>
+  <node pkg="cob_dashboard" type="cob_dashboard_aggregator.py" name="dashboard_aggregator" />
 
-    <!-- start diagnostics -->
-    <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
-        <rosparam command="load" file="$(find schunk_lwa4p)/config/diagnostics_analyzers.yaml" />
-    </node>
-    <node pkg="cob_dashboard" type="cob_dashboard_aggregator.py" name="dashboard_aggregator" />
-
-    <!-- upload script server parameters -->
-    <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/joint_configurations.yaml"/>
+  <!-- upload script server parameters -->
+  <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/joint_configurations.yaml"/>
 
 </launch>

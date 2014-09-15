@@ -12,7 +12,7 @@
   
   <url type="website">http://ros.org/wiki/schunk_lwa4d</url>
   <author email="fxm-fm@ipa.fhg.de">Francisco Moreno</author>
-  <maintainer email="fxm-fm@ipa.fhg.de">Francisco Moreno</maintainer>
+  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>ipa_canopen_ros</run_depend>

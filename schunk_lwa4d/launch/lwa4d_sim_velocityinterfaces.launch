@@ -4,7 +4,7 @@
 
     <!-- start gazebo with empty world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="paused" value="false" />
+        <arg name="paused" value="$(arg paused)" />
     </include>
 
     <!-- send lwa4d urdf to param server -->
@@ -22,26 +22,30 @@
     <!-- fake Calibration -->
     <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true" />
 
-    <!-- load controller -->
-    <rosparam file="$(find schunk_lwa4d)/config/joint_state_controller.yaml" command="load"/>
+    
+    <!-- NEW CONTROL -->
+	<!-- joint state controller -->
+    <rosparam command="load" file="$(find schunk_lwa4d)/config/joint_state_controller.yaml" />
     <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" />
 
-    <!-- velocity controllers -->
+    <!-- controller parameters -->
     <rosparam command="load" file="$(find schunk_lwa4d)/config/controller_sim_velocityinterfaces.yaml"/>
     
-    <node ns="arm_controller" name="cob_controller_adapter_gazebo" pkg="cob_controller_configuration_gazebo" type="cob_controller_adapter_gazebo.py" cwd="node" respawn="false" output="screen"/>
-    
+    <!-- start_controllers -->
+    <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" /-->
+
+    <!-- control_mode_adapter -->
+    <!-- <node ns="arm_controller" name="cob_controller_adapter_gazebo" pkg="cob_controller_configuration_gazebo" type="cob_controller_adapter_gazebo.py" cwd="node" respawn="false" output="screen"/> -->
+    <node ns="arm_controller" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
+
+    <!-- hardware_interface -->
+    <!-- using gazebo_ros plugin as controller_manager -->
     <node ns="arm_controller" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
-    
-    <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" />    
     
     <!-- Cartesian stuff -->
     <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
-    
     <node ns="arm_controller" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
-    
     <node ns="arm_controller" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
-    
     
     <!-- start diagnostics -->
     <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
