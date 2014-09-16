@@ -8,7 +8,7 @@
   <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
   <!-- parameters for canopenmaster node -->
-  <rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p_extended)/config/arm_driver.yaml" />
+  <rosparam ns="arm_controller" command="load" file="$(find schunk_lwa4p_extended)/config/arm_driver.yaml" />
 
   <!-- this is the CANopen ROS wrapper node -->
   <node ns="arm_controller" name="canopen_ros" pkg="ipa_canopen_ros" type="ipa_canopen_ros" cwd="node" respawn="false" output="screen" />
