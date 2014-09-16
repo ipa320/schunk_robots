@@ -7,16 +7,37 @@
   <!-- robot state publisher -->
   <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
-  <!-- parameters for CANopen node -->
+  <!-- parameters for canopenmaster node -->
   <rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p_extended)/config/arm_driver.yaml" />
-  <!-- This is the CANopen ROS wrapper node -->
-  <node ns="arm_controller" name="arm_canopen_ros" pkg="ipa_canopen_ros" type="ipa_canopen_ros" cwd="node" respawn="false" output="screen" />
 
-  <!-- parameter description of the trajectory controller -->
-  <rosparam command="load" ns="arm_controller" file="$(find schunk_lwa4p_extended)/config/arm_controller.yaml" />
-  <!-- The trajectory controller listens for JointTrajectoryFollowAction and sends velocity commands to the CANopen node -->
-  <node ns="arm_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
+  <!-- this is the CANopen ROS wrapper node -->
+  <node ns="arm_controller" name="canopen_ros" pkg="ipa_canopen_ros" type="ipa_canopen_ros" cwd="node" respawn="false" output="screen" />
+  
+  
+  
+  
+  <!-- NEW CONTROL -->
+  <!-- controller parameters -->
+  <rosparam command="load" file="$(find schunk_lwa4p_extended)/config/arm_controller.yaml"/>
+  
+  <!-- start_controllers -->
+  <!-- the mode_adapter will start the controllers -->
+  <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" /-->
+  
+  <!-- control_mode_adapter -->
+  <node ns="arm_controller" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/> 
+  
+  <!-- hardware_interface -->
+  <node ns="arm_controller" name="cob_controller_manager_node" pkg="cob_hardware_interface" type="cob_controller_manager_node" cwd="node" respawn="false" output="screen"/> 
+  
+  <!-- Cartesian stuff -->
+  <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm_controller" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm_controller" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
+  
+  
+  
+  
   <!-- start diagnostics -->
   <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
     <rosparam command="load" file="$(find schunk_lwa4p_extended)/config/diagnostics_analyzers.yaml" />
