@@ -25,7 +25,7 @@
   <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" /-->
   
   <!-- control_mode_adapter -->
-  <node ns="arm_controller" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/> 
+  <node ns="arm_controller" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
   
   <!-- hardware_interface -->
   <node ns="arm_controller" name="cob_controller_manager_node" pkg="cob_hardware_interface" type="cob_controller_manager_node" cwd="node" respawn="false" output="screen"/> 
