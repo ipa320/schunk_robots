@@ -3,6 +3,7 @@
     <!-- send urdf to param server -->
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
 
+    <!--node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
     <node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="">
        <rosparam command="load" file="$(find schunk_lwa4d)/config/can0.yaml" />
        <rosparam command="load" file="$(find schunk_lwa4d)/config/canopen_lwa4d.yaml" />

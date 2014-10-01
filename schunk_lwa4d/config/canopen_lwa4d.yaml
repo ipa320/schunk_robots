@@ -2,7 +2,7 @@ name: lwa4d_controller
 
 defaults:
   eds_pkg: schunk_lwa4d
-  eds_file: "config/PRL120.eds"
+  eds_file: "config/Schunk.eds"
 
 modules:
   - name: arm_1_joint
