@@ -1,0 +1,410 @@
+<sdf version='1.4'>
+  <model name='lwa4p_extended'>
+    <link name='arm_base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.067 0 -0 0</pose>
+        <mass>2</mass>
+        <inertia>
+          <ixx>0.00456066</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00456066</iyy>
+          <iyz>0</iyz>
+          <izz>0.003136</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_base_joint' type='revolute'>
+      <child>arm_base_link</child>
+      <parent>world</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name='arm_1_link'>
+      <pose>0 0 0.139 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.0662 0.0473 0 -0 0</pose>
+        <mass>0.8</mass>
+        <inertia>
+          <ixx>0.002034</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001437</iyy>
+          <iyz>0.000784</iyz>
+          <izz>0.00161</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_1_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_1_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_1_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_1_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_1_joint' type='revolute'>
+      <child>arm_1_link</child>
+      <parent>arm_base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>81.5</effort>
+          <velocity>0.42</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_2_link'>
+      <pose>0 0 0.2305 1.5708 -0 0</pose>
+      <inertial>
+        <pose>0 0.018 -0.018 0 -0 0</pose>
+        <mass>3.9</mass>
+        <inertia>
+          <ixx>0.00978</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0133</iyy>
+          <iyz>0</iyz>
+          <izz>0.00978</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_2_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_2_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_2_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_2_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_2_joint' type='revolute'>
+      <child>arm_2_link</child>
+      <parent>arm_1_link</parent>
+      <axis>
+        <xyz>0 -1 -3.67321e-06</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>48</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_3_link'>
+      <pose>0 0 0.2305 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.06247 0.23425 0 -0 0</pose>
+        <mass>1.94533</mass>
+        <inertia>
+          <ixx>0.0344</ixx>
+          <ixy>0</ixy>
+          <ixz>0.0077</ixz>
+          <iyy>0.0362</iyy>
+          <iyz>0</iyz>
+          <izz>0.0052</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_3_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_3_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_3_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_3_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_3_joint' type='revolute'>
+      <child>arm_3_link</child>
+      <parent>arm_2_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>48</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_4_link'>
+      <pose>0 0 0.6841 1.5708 -0 0</pose>
+      <inertial>
+        <pose>0 0.018 -0.018 0 -0 0</pose>
+        <mass>3.9</mass>
+        <inertia>
+          <ixx>0.00978</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0133</iyy>
+          <iyz>0</iyz>
+          <izz>0.00978</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_4_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_4_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_4_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_4_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_4_joint' type='revolute'>
+      <child>arm_4_link</child>
+      <parent>arm_3_link</parent>
+      <axis>
+        <xyz>0 -1 -3.67321e-06</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>48</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_5_link'>
+      <pose>0 0 0.6841 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.04175 0.17026 0 -0 0</pose>
+        <mass>1.3297</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.0031</ixz>
+          <iyy>0.0111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0031</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_5_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_5_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_5_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_5_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_5_joint' type='revolute'>
+      <child>arm_5_link</child>
+      <parent>arm_4_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>48</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_6_link'>
+      <pose>0 0 0.9827 1.5708 -0 0</pose>
+      <inertial>
+        <pose>0 0.012 -0.012 0 -0 0</pose>
+        <mass>1.9</mass>
+        <inertia>
+          <ixx>0.00275</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.004002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00283</izz>
+        </inertia>
+      </inertial>
+      <collision name='arm_6_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_6_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='arm_6_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://schunk_description/meshes/lwa4p_extended/arm_6_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_6_joint' type='revolute'>
+      <child>arm_6_link</child>
+      <parent>arm_5_link</parent>
+      <axis>
+        <xyz>0 -1 -3.67321e-06</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>15</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='arm_7_link'>
+      <pose>0 0 0.9827 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.1 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1.66667e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.66667e-07</iyy>
+          <iyz>0</iyz>
+          <izz>1.66667e-07</izz>
+        </inertia>
+      </inertial>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='arm_7_joint' type='revolute'>
+      <child>arm_7_link</child>
+      <parent>arm_6_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>15</effort>
+          <velocity>1.2566</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='ros_control' filename='libgazebo_ros_control.so'/>
+  </model>
+</sdf>
