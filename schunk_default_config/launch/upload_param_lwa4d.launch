@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<!-- send ROBOT parameters to parameter server -->
-	<rosparam command="load" ns="/script_server/arm" file="$(find schunk_default_config)/config/lwa4d_joint_configurations.yaml"/>
-	
-</launch>

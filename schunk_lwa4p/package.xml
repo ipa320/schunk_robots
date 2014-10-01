@@ -1,0 +1,34 @@
+<package>
+  <name>schunk_lwa4p</name>
+  <version>0.5.0</version>
+
+  <description>
+
+     schunk_lwa4p
+
+  </description>
+  
+  <license>LGPL</license>
+  
+  <url type="website">http://ros.org/wiki/schunk_lwa4p</url>
+  <author email="tdf@ipa.fhg.de">Thiago de Freitas</author>
+  <maintainer email="tdf@ipa.fhg.de">Thiago de Freitas</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>ipa_canopen_ros</run_depend>
+  <run_depend>cob_command_gui</run_depend>
+  <run_depend>cob_dashboard</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>cob_teleop</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>cob_trajectory_controller</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>rostopic</run_depend>
+  <run_depend>diagnostic_aggregator</run_depend>
+  <run_depend>cob_dashboard</run_depend>
+  <run_depend>controller_manager</run_depend>
+
+  <export>
+
+  </export>
+</package>
