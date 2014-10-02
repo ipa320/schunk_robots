@@ -25,7 +25,7 @@
             arm_5_ref="${arm_5_ref}" 
             arm_6_ref="${arm_6_ref}" 
             arm_7_ref="${arm_7_ref}">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0.01" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_lwa4d>
 
 </robot>
