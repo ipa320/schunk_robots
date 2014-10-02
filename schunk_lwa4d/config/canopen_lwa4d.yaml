@@ -1,4 +1,4 @@
-name: lwa4d_controller
+name: arm_controller
 
 defaults:
   eds_pkg: schunk_lwa4d
