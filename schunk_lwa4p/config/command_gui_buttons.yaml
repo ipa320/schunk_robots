@@ -8,15 +8,14 @@
 group1:
   group_name: arm settings
   component_name: arm
-  buttons: [[stop,trigger,stop],
-    [init,trigger,init],
-    [recover,trigger,recover],
-    [homing,trigger,homing]]
+  buttons: [[stop,stop],
+    [init,init],
+    [recover,recover]]
 
 group2:
   group_name: arm pos
   component_name: arm
-  buttons: [[stop,trigger,stop],
+  buttons: [[stop,stop],
     [home,move,home],
     [folded,move,folded],
     [waveleft,move,waveleft],
@@ -26,6 +25,6 @@ group2:
 group3:
   group_name: arm traj
   component_name: arm
-  buttons: [[stop,trigger,stop],
+  buttons: [[stop,stop],
     [wave,move,wave]]
 
