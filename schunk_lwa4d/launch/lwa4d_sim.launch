@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="paused" default="false"/>
+  <arg name="gui" default="true"/>
 
   <!-- start gazebo with empty world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="$(arg paused)" />
+    <arg name="gui" value="$(arg gui)" />
   </include>
 
   <!-- send lwa4d urdf to param server -->
@@ -19,9 +21,9 @@
     <param name="tf_prefix" type="string" value="" />
   </node>
   
-  <!-- fake Calibration -->
+  <!-- fake Calibration and HW-Services -->
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true" />
-  
+  <node ns="arm_controller" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
   
   
   
@@ -34,23 +36,25 @@
   <rosparam command="load" file="$(find schunk_lwa4d)/config/arm_controller_sim.yaml"/>
   
   <!-- start_controllers -->
-  <!-- the mode_adapter will start the controllers -->
-  <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" /-->
-  <!--node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_1_joint_velocity_controller arm_2_joint_velocity_controller arm_3_joint_velocity_controller arm_4_joint_velocity_controller arm_5_joint_velocity_controller arm_6_joint_velocity_controller arm_7_joint_velocity_controller" /-->
+  <!-- the mode_adapter will start the controllers or you can use one of the spawners -->
+<!--
+  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_follow_joint_trajectory_controller_pos" />
+  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_follow_joint_trajectory_controller_vel" />
+  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_position_controller" />
+  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_velocity_controller" />
+-->
   
   <!-- control_mode_adapter -->
-  <!-- <node ns="arm_controller" name="cob_controller_adapter_gazebo" pkg="cob_controller_configuration_gazebo" type="cob_controller_adapter_gazebo.py" cwd="node" respawn="false" output="screen"/> -->
+<!--
   <node ns="arm_controller" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
-  
-  <!-- hardware_interface -->
-  <!-- using gazebo_ros plugin as controller_manager -->
-  <node ns="arm_controller" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
+-->
   
   <!-- Cartesian stuff -->
+<!--
   <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
   <node ns="arm_controller" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
   <node ns="arm_controller" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
-  
+-->
   
   
   

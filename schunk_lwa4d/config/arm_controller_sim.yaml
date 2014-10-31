@@ -1,6 +1,57 @@
-#joint trajectory controller and Cartesian controller
+#Cartesian controller
 arm_controller:
-  # joint trajectory controller
+  joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
+
+  # twist controller parameters
+  base_link: arm_base_link
+  tip_link: arm_7_link
+
+  # frame_tracker + interactive_marker
+  active_frame: arm_7_link
+  tracking_frame: arm_7_target
+  root_frame: world
+  movable_trans: true
+  movable_rot: true
+  pid_trans_x: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  pid_trans_y: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  pid_trans_z: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  pid_rot: {p: 10.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+  update_rate: 68.0
+  max_vel_lin: 10.0
+  max_vel_rot: 6.28
+
+
+
+
+
+# joint trajectory controller for position HW-Interface
+arm_follow_joint_trajectory_controller_pos:
+  type: position_controllers/JointTrajectoryController
+  topic: "test"
+  joints:
+     - arm_1_joint
+     - arm_2_joint
+     - arm_3_joint
+     - arm_4_joint
+     - arm_5_joint
+     - arm_6_joint
+     - arm_7_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.5
+      arm_1_joint: {trajectory: 0.1, goal: 0.1}
+      arm_2_joint: {trajectory: 0.1, goal: 0.1}
+      arm_3_joint: {trajectory: 0.1, goal: 0.1}
+      arm_4_joint: {trajectory: 0.1, goal: 0.1}
+      arm_5_joint: {trajectory: 0.1, goal: 0.1}
+      arm_6_joint: {trajectory: 0.1, goal: 0.1}
+      arm_7_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+# joint trajectory controller for velocity HW-Interface
+arm_follow_joint_trajectory_controller_vel:
   type: velocity_controllers/JointTrajectoryController
   topic: "test"
   joints:
@@ -33,65 +84,55 @@ arm_controller:
   state_publish_rate:  25
   action_monitor_rate: 10
 
-  #all
-  joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
 
-  ## trajectory controller parameters
-  #ptp_vel: 1.5 # rad/sec
-  #ptp_acc: 0.2 # rad/sec^2
-  #max_error: 0.25 # rad
-  #overlap_time: 0.4
-  #frequency: 68
-  #operation_mode: velocity
-
-  # twist controller parameters
-  base_link: arm_base_link
-  tip_link: arm_7_link
-
-  # frame_tracker + interactive_marker
-  active_frame: arm_7_link
-  tracking_frame: arm_7_target
-  root_frame: world
-  movable_trans: true
-  movable_rot: true
-  pid_trans: {p: 10.0, i: 0.0, d: 0.0, i_clamp: 0.0}
-  pid_rot: {p: 10.0, i: 0.0, d: 0.0, i_clamp: 0.0}
-  update_rate: 68.0
-  max_vel_lin: 10.0
-  max_vel_rot: 6.28
 
 ##position controller
-#arm_1_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_1_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_2_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_2_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_3_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_3_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_4_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_4_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_5_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_5_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_6_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_6_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
-#arm_7_joint_position_controller:
-  #type: velocity_controllers/JointPositionController
-  #joint: arm_7_joint
-  #pid: {p: 10, i: 0.0, d: 0.0, i_clamp: 0.0}
+arm_position_controller:
+  type: position_controllers/JointGroupPositionController
+  joints:
+     - arm_1_joint
+     - arm_2_joint
+     - arm_3_joint
+     - arm_4_joint
+     - arm_5_joint
+     - arm_6_joint
+     - arm_7_joint
+     
+arm_1_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_1_joint
+arm_2_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_2_joint
+arm_3_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_3_joint
+arm_4_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_4_joint
+arm_5_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_5_joint
+arm_6_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_6_joint
+arm_7_joint_position_controller:
+  type: position_controllers/JointPositionController
+  joint: arm_7_joint
 
 
 #velocity controller
+arm_velocity_controller:
+  type: velocity_controllers/JointGroupVelocityController
+  joints:
+     - arm_1_joint
+     - arm_2_joint
+     - arm_3_joint
+     - arm_4_joint
+     - arm_5_joint
+     - arm_6_joint
+     - arm_7_joint
+
 arm_1_joint_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: arm_1_joint
@@ -113,15 +154,3 @@ arm_6_joint_velocity_controller:
 arm_7_joint_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: arm_7_joint
-
-
-#by setting the following PID the control mode switches from VELOCITY (=SetVelocity) to VELOCITY_PID (=SetForce)!
-#gazebo_ros_control/pid_gains:
- #arm_left_1_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_2_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_3_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_4_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_5_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_6_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- #arm_left_7_joint: {p: 100.0, i: 0.0, d: 0.0, i_clamp: 0.0}
- 
