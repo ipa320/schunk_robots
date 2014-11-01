@@ -5,6 +5,10 @@ arm_controller:
   # twist controller parameters
   base_link: arm_base_link
   tip_link: arm_7_link
+  #base_active: false
+  #base_ratio: 0.0
+  
+  max_vel_command_silence: 0.5
 
   # frame_tracker + interactive_marker
   active_frame: arm_7_link
@@ -12,15 +16,13 @@ arm_controller:
   root_frame: world
   movable_trans: true
   movable_rot: true
-  pid_trans_x: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
-  pid_trans_y: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
-  pid_trans_z: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
-  pid_rot: {p: 25.0, i: 5.0, d: 0.0, i_clamp: 5.0}
+  pid_trans_x: {p: 6.0, i: 8.0, d: 1.125, i_clamp: 0.0}
+  pid_trans_y: {p: 6.0, i: 8.0, d: 1.125, i_clamp: 0.0}
+  pid_trans_z: {p: 6.0, i: 8.0, d: 1.125, i_clamp: 0.0}
+  pid_rot: {p: 6.0, i: 8.0, d: 1.125, i_clamp: 0.0}
   update_rate: 68.0
   max_vel_lin: 10.0
   max_vel_rot: 6.28
-
-
 
 
 
