@@ -15,11 +15,19 @@
     </plugin>
   </gazebo>
 -->
+
+  <gazebo>
+    <plugin name="ros_control" filename="libmulti_hw_interface_gazebo_ros_control.so"/>
+  </gazebo>
   
+<!--
   <gazebo>
     <plugin name="ros_control" filename="libmulti_hw_interface_gazebo_ros_control.so">
+      <robotNamespace>arm</robotNamespace>
+      <filterJointsParam>joint_names</filterJointsParam>
     </plugin>
   </gazebo>
+-->
 
   <!-- calibration -->
   <xacro:include filename="$(find schunk_lwa4d)/calibration/calibration.urdf.xacro" />
