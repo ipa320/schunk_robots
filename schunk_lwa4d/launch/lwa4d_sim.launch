@@ -35,16 +35,10 @@
   
   <!-- start_controllers -->
   <node ns="arm" name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="true" />
-  <!-- the mode_adapter will start the controllers or you can use one of the spawners -->
-<!--
-  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_follow_joint_trajectory_controller_pos" />
-  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_follow_joint_trajectory_controller_vel" />
-  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_position_controller" />
-  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_velocity_controller" />
--->
-  
+
   <!-- control_mode_adapter -->
   <node ns="arm" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
   
   <!-- Cartesian stuff -->
 <!--
