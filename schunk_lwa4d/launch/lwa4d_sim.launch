@@ -41,11 +41,9 @@
   <node ns="arm" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
   
   <!-- Cartesian stuff -->
-<!--
-  <node ns="arm_controller" name="cob_twist_controller_node" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
-  <node ns="arm_controller" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
-  <node ns="arm_controller" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
--->
+  <node ns="arm" name="twist_controller" pkg="cob_twist_controller" type="cob_twist_controller_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm" name="frame_tracker" pkg="cob_frame_tracker" type="cob_frame_tracker_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm" name="interactive_target" pkg="cob_frame_tracker" type="interactive_frame_target.py" cwd="node" respawn="false" output="screen"/>
   
   
   
