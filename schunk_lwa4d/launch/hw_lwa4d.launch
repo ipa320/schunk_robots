@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- send urdf to param server -->
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
+
+    <!--node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
+    <node ns="arm" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="">
+       <rosparam command="load" file="$(find schunk_lwa4d)/config/can0.yaml" />
+       <rosparam command="load" file="$(find schunk_lwa4d)/config/canopen_lwa4d.yaml" />
+       <remap from="joint_states" to="/joint_states"/>
+    </node>
+
+    <!-- controllers -->
+    <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/lwa4d_controller.yaml" />
+    <rosparam  ns="arm" command="load" file="$(find schunk_lwa4d)/config/joint_limits.yaml"/>
+
+    <node ns="arm" name="arm_joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="/arm/joint_state_controller" respawn="true" />
+    
+  
+    <node ns="arm" name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="/arm/joint_trajectory_controller" respawn="true" />
+    
+    
+    <!-- robot state publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+    
+    
+    <!-- default robot config -->
+    <rosparam ns="/script_server/arm" command="load" file="$(find schunk_lwa4d)/config/joint_configurations.yaml" />
+
+</launch>
