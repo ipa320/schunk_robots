@@ -1,0 +1,22 @@
+## Cartesian controller
+cartesian_controller:
+  update_rate: 50.0
+
+  # twist controller parameters
+  base_link: arm_base_link
+  tip_link: arm_7_link
+  #max_vel_lin: 10.0
+  #max_vel_rot: 6.28
+  #base_active: false
+  #base_ratio: 0.0
+
+  # frame_tracker + interactive_marker
+  active_frame: arm_7_link
+  tracking_frame: arm_7_target
+  root_frame: world
+  movable_trans: true
+  movable_rot: true
+  pid_trans_x: {p: 1 , i: 0.056, d: 0.0, i_clamp: 0.0}
+  pid_trans_y: {p: 1 , i: 0.056, d: 0.0, i_clamp: 0.0}
+  pid_trans_z: {p: 1 , i: 0.056, d: 0.0, i_clamp: 0.0}
+  pid_rot: {p: 1 , i: 0.0, d: 0.0, i_clamp: 0.0}

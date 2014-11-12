@@ -5,7 +5,21 @@
   <!-- common stuff -->
   <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
   <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+<!--
   <xacro:include filename="$(find schunk_description)/urdf/gazebo.urdf.xacro" />
+-->
+
+<!--
+  <gazebo>
+    <plugin name="ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+-->
+  
+  <gazebo>
+    <plugin name="ros_control" filename="libmulti_hw_interface_gazebo_ros_control.so">
+    </plugin>
+  </gazebo>
 
   <!-- calibration -->
   <xacro:include filename="$(find schunk_lwa4p_extended)/calibration/calibration.urdf.xacro" />
@@ -25,7 +39,7 @@
             arm_5_ref="${arm_5_ref}" 
             arm_6_ref="${arm_6_ref}" 
             arm_7_ref="${arm_7_ref}">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0.01" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_lwa4p_extended>
 
 </robot>
