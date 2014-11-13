@@ -1,38 +1,38 @@
 <?xml version="1.0"?>
 <launch>
-    <!-- send urdf to param server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
 
-    <!-- robot state publisher -->
-    <node ns="arm" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
-        <param name="publish_frequency" type="double" value="50.0" />
-        <param name="tf_prefix" type="string" value="" />
-        <!--remap from="joint_states" to="/arm/joint_states"/-->
-    </node>
+  <!-- robot state publisher -->
+  <node ns="arm" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" type="string" value="" />
+      <!--remap from="joint_states" to="/arm/joint_states"/-->
+  </node>
 
-    <!--node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
-    <node ns="arm" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="">
-       <rosparam command="load" file="$(find schunk_lwa4d)/config/can0.yaml" />
-       <rosparam command="load" file="$(find schunk_lwa4d)/config/arm_driver.yaml" />
-       <!--remap from="joint_states" to="/joint_states"/-->
-    </node>
+  <!--node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
+  <node ns="arm" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="">
+     <rosparam command="load" file="$(find schunk_lwa4d)/config/can0.yaml" />
+     <rosparam command="load" file="$(find schunk_lwa4d)/config/arm_driver.yaml" />
+     <!--remap from="joint_states" to="/joint_states"/-->
+  </node>
 
-    <!-- controllers -->
-    <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_controller.yaml" />
-    <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/joint_limits.yaml"/>
-    <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_cartesian_controller.yaml"/>
+  <!-- controllers -->
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_controller.yaml" />
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/joint_limits.yaml"/>
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_cartesian_controller.yaml"/>
 
-    <!-- start_controllers -->
-    <node ns="arm" name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="true" />
-    
-    <!-- control_mode_adapter -->
-    <node ns="arm" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
-    <node ns="arm" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
-    
-    
-    <!-- ToDo: Cartesian controller -->
-    
-    <!-- default robot config -->
-    <rosparam ns="/script_server/arm" command="load" file="$(find schunk_lwa4d)/config/joint_configurations.yaml" />
+  <!-- start_controllers -->
+  <node ns="arm" name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="true" />
+
+  <!-- control_mode_adapter -->
+  <node ns="arm" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="arm" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
+  
+  
+  <!-- ToDo: Cartesian controller -->
+  
+  <!-- default robot config -->
+  <rosparam ns="/script_server/arm" command="load" file="$(find schunk_lwa4d)/config/joint_configurations.yaml" />
 
 </launch>

@@ -21,7 +21,7 @@
       <param name="tf_prefix" type="string" value="" />
       <!--remap from="joint_states" to="/arm/joint_states"/-->
   </node>
-  
+
   <!-- fake Calibration and HW-Services -->
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true" />
   <node ns="arm" name="gazebo_services" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py"  cwd="node" respawn="false" output="screen"/>
@@ -32,7 +32,7 @@
   <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_controller.yaml" />
   <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/joint_limits.yaml"/>
   <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_cartesian_controller.yaml"/>
-  
+
   <!-- start_controllers -->
   <node ns="arm" name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="true" />
 
