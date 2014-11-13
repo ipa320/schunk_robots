@@ -4,7 +4,6 @@
 
   <!-- common stuff -->
   <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
-  <xacro:include filename="$(find schunk_description)/urdf/gazebo.urdf.xacro" />
   <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
 
   <!-- calibration -->
@@ -13,33 +12,20 @@
   <!-- schunk lwa4p -->
   <xacro:include filename="$(find schunk_description)/urdf/lwa4p/lwa4p.urdf.xacro" />
 
-  <!-- foot for arm -->
-  <link name="base_link">
-    <inertial>
-      <origin xyz="0 0 -10" rpy="0 0 0"/>
-      <mass value="1000.0"/>
-      <inertia ixx="100.0"  ixy="0"  ixz="0" iyy="100.0" iyz="0" izz="100.0" />
-    </inertial>
-
-    <visual>
-      <origin xyz="0 0 0.25" rpy="0 0 0" />
-      <geometry>
-         <cylinder radius="0.1" length="0.5"/>
-      </geometry>
-      <material name="Schunk/DarkGrey" />
-    </visual>
-
-    <collision>
-      <origin xyz="0 0 0.25" rpy="0 0 0" />
-      <geometry>
-        <cylinder radius="0.1" length="0.5"/>
-      </geometry>
-    </collision>
-  </link>
+  <!-- Used for fixing robot to Gazebo -->
+  <link name="world"/>
 
   <!-- arm -->
-  <xacro:schunk_lwa4p name="arm" parent="base_link">
-    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  <xacro:schunk_lwa4p name="arm" parent="world">
+    <origin xyz="0 0 0.01" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_lwa4p>
+
+  <!-- gazebo_plugin for arm -->
+  <gazebo>
+    <plugin name="ros_control" filename="libmulti_hw_interface_gazebo_ros_control.so">
+      <robotNamespace>arm</robotNamespace>
+      <filterJointsParam>joint_names</filterJointsParam>
+    </plugin>
+  </gazebo>
 
 </robot>
