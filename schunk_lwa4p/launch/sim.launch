@@ -9,11 +9,11 @@
     <arg name="gui" value="$(arg gui)" />
   </include>
 
-  <!-- send lwa4d urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4d)/urdf/robot_lwa4d.urdf.xacro'" />
+  <!-- send lwa4p urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/robot.urdf.xacro'" />
   
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model lwa4d -z 0.01 " respawn="false" output="screen" />
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model lwa4p -z 0.01 " respawn="false" output="screen" />
 
   <!-- robot state publisher -->
   <node ns="arm" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
@@ -29,9 +29,9 @@
   
   
   <!-- controllers -->
-  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_controller.yaml" />
-  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/joint_limits.yaml"/>
-  <rosparam ns="arm" command="load" file="$(find schunk_lwa4d)/config/arm_cartesian_controller.yaml"/>
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4p)/config/arm_controller.yaml" />
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4p)/config/joint_limits.yaml"/>
+  <rosparam ns="arm" command="load" file="$(find schunk_lwa4p)/config/arm_cartesian_controller.yaml"/>
 
   <!-- start_controllers -->
   <node ns="arm" name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="true" />
@@ -49,11 +49,11 @@
   
   <!-- start diagnostics -->
   <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
-    <rosparam command="load" file="$(find schunk_lwa4d)/config/diagnostics_analyzers.yaml" />
+    <rosparam command="load" file="$(find schunk_lwa4p)/config/diagnostics_analyzers.yaml" />
   </node>
   <node pkg="cob_dashboard" type="cob_dashboard_aggregator.py" name="dashboard_aggregator" />
 
   <!-- upload script server parameters -->
-  <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4d)/config/joint_configurations.yaml"/>
+  <rosparam command="load" ns="/script_server/arm" file="$(find schunk_lwa4p)/config/joint_configurations.yaml"/>
 
 </launch>

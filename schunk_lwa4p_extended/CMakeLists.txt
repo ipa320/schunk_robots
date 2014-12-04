@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(schunk_lwa4p_extended)
 
-find_package(catkin REQUIRED COMPONENTS)
+find_package(catkin REQUIRED COMPONENTS roslaunch rostest)
 
 
 # TODO: fill in what other packages will need to use this package
@@ -16,7 +16,11 @@ catkin_package(
     LIBRARIES # TODO
 )
 
+# test
+roslaunch_add_file_check(launch)
+add_rostest(urdf/test/urdf.test)
 
+# install
 install(DIRECTORY calibration
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
