@@ -1,8 +1,19 @@
-device: /dev/pcan32
-baudrate: 500K
-sync_interval: 5
-chains: ["arm_controller"]
-arm_controller:
-  joint_names: [arm_1_joint,arm_2_joint,arm_3_joint,arm_4_joint,arm_5_joint,arm_6_joint]
-  module_ids: [3,4,5,6,7,8]
-  motor_direction: [1,1,1,1,1,1]
+name: arm
+
+defaults:
+  eds_pkg: schunk_lwa4p
+  eds_file: "config/Schunk_0_63.dcf"
+
+modules:
+  - name: arm_1_joint
+    id: 3
+  - name: arm_2_joint
+    id: 4
+  - name: arm_3_joint
+    id: 5
+  - name: arm_4_joint
+    id: 6
+  - name: arm_5_joint
+    id: 7
+  - name: arm_6_joint
+    id: 8
