@@ -10,8 +10,8 @@
       <!--remap from="joint_states" to="/arm/joint_states"/-->
   </node>
 
-  <!--node ns="lwa4d" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
-  <node ns="arm" name="driver" pkg="ipa_canopen_motor_control" type="ipa_canopen_motor_control_node" output="screen" clear_params="true" launch-prefix="">
+  <!--node ns="lwa4d" name="driver" pkg="canopen_motor_node" type="canopen_motor_node_node" output="screen" clear_params="true" launch-prefix="gdb -ex run -/-args"-->
+  <node ns="arm" name="driver" pkg="canopen_motor_node" type="canopen_motor_node_node" output="screen" clear_params="true" launch-prefix="">
      <rosparam command="load" file="$(find schunk_lwa4d)/config/can0.yaml" />
      <rosparam command="load" file="$(find schunk_lwa4d)/config/arm_driver.yaml" />
      <!--remap from="joint_states" to="/joint_states"/-->
