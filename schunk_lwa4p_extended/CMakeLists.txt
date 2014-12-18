@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS roslaunch rostest)
 ## INCLUDE_DIRS: 
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 catkin_package(
-    CATKIN_DEPENDS  ipa_canopen_ros cob_command_gui cob_dashboard joy cob_teleop robot_state_publisher cob_trajectory_controller gazebo_ros rostopic diagnostic_aggregator controller_manager
+    CATKIN_DEPENDS cob_command_gui cob_dashboard joy cob_teleop robot_state_publisher cob_trajectory_controller gazebo_ros rostopic diagnostic_aggregator controller_manager
     DEPENDS # TODO
     INCLUDE_DIRS # TODO include
     LIBRARIES # TODO
