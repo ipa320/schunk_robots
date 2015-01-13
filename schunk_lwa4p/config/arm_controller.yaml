@@ -71,7 +71,6 @@ arm_6_joint_position_controller:
   joint: arm_6_joint
   required_drive_mode: 1
 
-
 ## velocity controller
 joint_group_velocity_controller:
   type: velocity_controllers/JointGroupVelocityController

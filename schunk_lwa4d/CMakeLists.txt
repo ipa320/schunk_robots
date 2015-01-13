@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(schunk_lwa4d)
 
-find_package(catkin REQUIRED COMPONENTS)
+find_package(catkin REQUIRED COMPONENTS roslaunch rostest)
 
 
 # TODO: fill in what other packages will need to use this package
@@ -10,13 +10,17 @@ find_package(catkin REQUIRED COMPONENTS)
 ## INCLUDE_DIRS: 
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 catkin_package(
-    CATKIN_DEPENDS  ipa_canopen_ros cob_command_gui cob_dashboard joy cob_teleop robot_state_publisher cob_trajectory_controller gazebo_ros rostopic diagnostic_aggregator controller_manager
+    CATKIN_DEPENDS cob_command_gui cob_dashboard joy cob_teleop robot_state_publisher cob_trajectory_controller gazebo_ros rostopic diagnostic_aggregator controller_manager
     DEPENDS # TODO
     INCLUDE_DIRS # TODO include
     LIBRARIES # TODO
 )
 
+# test
+roslaunch_add_file_check(launch)
+add_rostest(urdf/test/urdf.test)
 
+# install
 install(DIRECTORY calibration
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

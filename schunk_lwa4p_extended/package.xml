@@ -15,7 +15,9 @@
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>ipa_canopen_ros</run_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>rostest</build_depend>
+
   <run_depend>cob_command_gui</run_depend>
   <run_depend>cob_dashboard</run_depend>
   <run_depend>joy</run_depend>
@@ -26,6 +28,12 @@
   <run_depend>rostopic</run_depend>
   <run_depend>diagnostic_aggregator</run_depend>
   <run_depend>controller_manager</run_depend>
+  <run_depend>cob_control_mode_adapter</run_depend>
+  <run_depend>topic_tools</run_depend>
+  <run_depend>canopen_motor_node</run_depend>
+  <run_depend>cob_controller_configuration_gazebo</run_depend>
+  <run_depend>cob_twist_controller</run_depend>
+  <run_depend>cob_frame_tracker</run_depend>
 
   <export>
 
