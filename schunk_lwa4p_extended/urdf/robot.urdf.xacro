@@ -16,7 +16,7 @@
   <link name="world"/>
 
   <!-- arm -->
-  <xacro:schunk_lwa4p_extended name="arm" parent="world"
+  <xacro:schunk_lwa4p_extended name="arm" parent="world" has_podest="true"
             arm_1_ref="${arm_1_ref}"
             arm_2_ref="${arm_2_ref}" 
             arm_3_ref="${arm_3_ref}" 
