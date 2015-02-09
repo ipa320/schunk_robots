@@ -24,7 +24,7 @@
             arm_5_ref="${arm_5_ref}" 
             arm_6_ref="${arm_6_ref}"
             arm_7_ref="${arm_7_ref}">
-    <origin xyz="0 0 0.01" rpy="0 0 0" /> <!--slightly above gazebo plane-->
+    <origin xyz="0 0 0.026" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_lwa4p_extended>
 
   <!-- gazebo_plugin for arm -->
