@@ -18,7 +18,9 @@ catkin_package(
 
 # test
 roslaunch_add_file_check(launch)
-add_rostest(urdf/test/urdf.test)
+if(CATKIN_ENABLE_TESTING)
+    add_rostest(urdf/test/urdf.test)
+endif(CATKIN_ENABLE_TESTING)
 
 # install
 install(DIRECTORY calibration
