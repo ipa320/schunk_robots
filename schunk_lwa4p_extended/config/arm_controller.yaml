@@ -11,7 +11,7 @@ joint_state_controller:
 
 ## joint trajectory controller
 joint_trajectory_controller:
-  type: position_controllers/JointTrajectoryController
+  type: effort_controllers/JointTrajectoryController
   joints:
      - arm_1_joint
      - arm_2_joint
@@ -20,6 +20,14 @@ joint_trajectory_controller:
      - arm_5_joint
      - arm_6_joint
      - arm_7_joint
+  gains:
+    arm_1_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_2_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_3_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_4_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_5_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_6_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
+    arm_7_joint: {p: 100, i: 0, d: 0, i_clamp: 0}
   constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
