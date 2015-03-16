@@ -3,22 +3,15 @@ project(schunk_lwa4p)
 
 find_package(catkin REQUIRED COMPONENTS roslaunch rostest)
 
-
-# TODO: fill in what other packages will need to use this package
-## DEPENDS: system dependencies of this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## INCLUDE_DIRS: 
-## LIBRARIES: libraries you create in this project that dependent projects also need
 catkin_package(
     CATKIN_DEPENDS cob_command_gui cob_dashboard joy cob_teleop robot_state_publisher cob_trajectory_controller gazebo_ros rostopic diagnostic_aggregator controller_manager
-    DEPENDS # TODO
-    INCLUDE_DIRS # TODO include
-    LIBRARIES # TODO
 )
 
 # test
-roslaunch_add_file_check(launch)
-add_rostest(urdf/test/urdf.test)
+if(CATKIN_ENABLE_TESTING)
+    roslaunch_add_file_check(launch)
+    add_rostest(urdf/test/urdf.test)
+endif()
 
 # install
 install(DIRECTORY calibration
