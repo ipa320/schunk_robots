@@ -6,9 +6,6 @@
   <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
   <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
 
-  <!-- calibration -->
-  <xacro:include filename="$(find schunk_lwa4d)/calibration/calibration.urdf.xacro" />
-
   <!-- schunk lwa4d -->
   <xacro:include filename="$(find schunk_description)/urdf/lwa4d/lwa4d.urdf.xacro" />
 
@@ -16,14 +13,7 @@
   <link name="world"/>
 
   <!-- arm -->
-  <xacro:schunk_lwa4d name="arm" parent="world" has_podest="true"
-            arm_1_ref="${arm_1_ref}"
-            arm_2_ref="${arm_2_ref}" 
-            arm_3_ref="${arm_3_ref}" 
-            arm_4_ref="${arm_4_ref}" 
-            arm_5_ref="${arm_5_ref}" 
-            arm_6_ref="${arm_6_ref}"
-            arm_7_ref="${arm_7_ref}">
+  <xacro:schunk_lwa4d name="arm" parent="world" has_podest="true">
     <origin xyz="0 0 0.026" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_lwa4d>
 
