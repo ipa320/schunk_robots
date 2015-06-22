@@ -1,10 +1,6 @@
 ## joint_names
 joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
 
-chain_base_link: arm_podest_link
-chain_tip_link: arm_7_link
-root_frame: world
-
 ## control_mode_adapter
 max_command_silence: 0.5
 

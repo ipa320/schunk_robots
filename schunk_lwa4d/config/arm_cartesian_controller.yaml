@@ -1,4 +1,7 @@
 ## Cartesian controller parameters
+chain_base_link: arm_podest_link
+chain_tip_link: arm_7_link
+root_frame: world
 
 # twist controller parameters
 twist_controller:
