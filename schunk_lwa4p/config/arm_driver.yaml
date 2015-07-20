@@ -4,7 +4,7 @@ defaults:
   eds_pkg: schunk_lwa4p
   eds_file: "config/Schunk_0_63.dcf"
 
-modules:
+nodes:
   - name: arm_1_joint
     id: 3
   - name: arm_2_joint
