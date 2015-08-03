@@ -4,9 +4,7 @@ project(schunk_lwa4p_extended)
 find_package(catkin REQUIRED COMPONENTS roslaunch rostest)
 
 catkin_package(
-    CATKIN_DEPENDS xacro rostopic topic_tools cob_description schunk_description cob_command_gui cob_dashboard diagnostic_aggregator
-    robot_state_publisher controller_manager cob_control_mode_adapter joint_state_controller position_controllers velocity_controllers
-    joint_trajectory_controller cob_twist_controller cob_frame_tracker canopen_motor_node gazebo_ros cob_gazebo_ros_control cob_controller_configuration_gazebo
+    CATKIN_DEPENDS canopen_motor_node cob_command_gui cob_control_mode_adapter cob_controller_configuration_gazebo cob_dashboard cob_description cob_frame_tracker cob_gazebo_ros_control cob_twist_controller controller_manager diagnostic_aggregator gazebo_ros joint_state_controller joint_trajectory_controller position_controllers robot_state_publisher rostopic schunk_description topic_tools velocity_controllers xacro
 )
 
 ### TESTING ###
