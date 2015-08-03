@@ -35,6 +35,10 @@
   <run_depend>cob_controller_configuration_gazebo</run_depend>
   <run_depend>cob_twist_controller</run_depend>
   <run_depend>cob_frame_tracker</run_depend>
+  <run_depend>position_controllers</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
+  <run_depend>velocity_controllers</run_depend>
 
   <export>
 
