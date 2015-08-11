@@ -3,4 +3,4 @@
 
   <test test-name="lwa4p_extended_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_lwa4p_extended)/urdf/robot.urdf.xacro"/>
 
-</launch> 
+</launch>

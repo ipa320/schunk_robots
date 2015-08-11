@@ -28,10 +28,10 @@
   <!-- control_mode_adapter -->
   <node ns="arm" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
   <node ns="arm" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
-  
-  
+
+
   <!-- ToDo: Cartesian controller -->
-  
+
   <!-- default robot config -->
   <rosparam ns="/script_server/arm" command="load" file="$(find schunk_lwa4p)/config/joint_configurations.yaml" />
 

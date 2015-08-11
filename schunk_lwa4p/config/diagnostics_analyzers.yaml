@@ -9,7 +9,7 @@ analyzers:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Arm
         contains: 'arm_controller'
-        
+
 ## remove diagnostics from gazebo in simulated case
   simulation:
     type: diagnostic_aggregator/DiscardAnalyzer

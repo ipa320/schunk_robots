@@ -3,9 +3,9 @@
   <version>0.5.0</version>
 
   <description> schunk_lwa4p </description>
-  
+
   <license>LGPL</license>
-  
+
   <url type="website">http://ros.org/wiki/schunk_lwa4p</url>
   <author email="fxm-fm@ipa.fhg.de">Francisco Moreno</author>
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
