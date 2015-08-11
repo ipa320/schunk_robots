@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>schunk_robots</name>
   <version>0.5.0</version>
   <description>
@@ -14,9 +14,10 @@
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>schunk_lwa4d</run_depend>
-  <run_depend>schunk_lwa4p</run_depend>
-  <run_depend>schunk_lwa4p_extended</run_depend>
+
+  <exec_depend>schunk_lwa4d</exec_depend>
+  <exec_depend>schunk_lwa4p</exec_depend>
+  <exec_depend>schunk_lwa4p_extended</exec_depend>
 
   <export>
     <metapackage/>
