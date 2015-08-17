@@ -21,7 +21,7 @@ group2:
     [folded,move,folded],
     [waveleft,move,waveleft],
     [waveright,move,waveright]]
-    
+
 # trajectories
 group3:
   group_name: arm traj
