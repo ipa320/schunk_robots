@@ -18,7 +18,7 @@ twist_controller:
   eps_truncation: 0.001
 
   # constraints
-  solver: 1    #WLN
+  solver: 1    #Default 0, WLN 1, GPM 2, StackOfTask 3, Task2nd 4
   priority: 500    #Prio for main task
   mu: -2.0
   k_H: 1.0    #Self-motion factor for GPM
@@ -50,13 +50,14 @@ twist_controller:
   max_vel_lin_base: 0.5
   max_vel_rot_base: 0.5
 
-  # collision avoidance frames for obstacle distance
-  collision_check_frames: [arm_2_link, arm_4_link, arm_6_link]
+  # the following links of the chain are considered for collision avoidance
+  collision_check_links: [arm_2_link, arm_4_link, arm_6_link]
 
 # frame_tracker + interactive_marker
 frame_tracker:
   update_rate: 50.0
   tracking_frame: arm_6_target
+  marker_scale: 0.3
   movable_trans: true
   movable_rot: true
   pid_trans_x: {p: 4.0, i: 0.0, d: 0.0, i_clamp: 0.0}
@@ -66,8 +67,8 @@ frame_tracker:
   pid_rot_y: {p: 4.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid_rot_z: {p: 4.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   # abortion criteria - cfg
-  cart_min_dist_threshold_lin: 0.01
-  cart_min_dist_threshold_rot: 0.01
+  cart_min_dist_threshold_lin: 0.1
+  cart_min_dist_threshold_rot: 0.1
   twist_dead_threshold_lin: 0.05
   twist_dead_threshold_rot: 0.05
   twist_deviation_threshold_lin: 0.5
