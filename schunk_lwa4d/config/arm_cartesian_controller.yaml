@@ -6,6 +6,7 @@ root_frame: world
 # twist controller parameters
 twist_controller:
   controller_interface: 0    #Velocity 0, Position 1, Trajectory 2, JointStates 3
+  integrator_smoothing: 0.2
 
   # damping parameters
   numerical_filtering: false
@@ -47,10 +48,12 @@ twist_controller:
   enforce_acc_limits: false
   limits_tolerance: 5.0    #for position limits [deg]
   #limits_acc: [2.79, 2.79, 2.65, 2.65, 2.79, 8.73, 8.73]    #[rad/s2], taken from MTS
-  limits_acc: [2.5, 2.5, 2.5, 2.5, 2.5, 8.5, 8.5]    #[rad/s2]
+  #limits_acc: [2.5, 2.5, 2.5, 2.5, 2.5, 8.5, 8.5]    #[rad/s2]
 
   # kinematic extensions
   kinematic_extension: 0    #OFF 0, BaseCompensation 1, BaseActive 2
+  lookat_axis_type: 2   #X_POSITIVE 0, Y_POSITIVE 1, Z_POSITIVE 2, X_NEGATIVE 3, Y_NEGATIVE 4, Z_NEGATIVE 5
+  lookat_offset: {translation: {x: 0.0, y: 0.0, z: 0.0}, rotation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}
   extension_ratio: 0.05
   max_vel_lin_base: 0.5
   max_vel_rot_base: 0.5
@@ -72,7 +75,8 @@ frame_tracker:
   pid_rot_y: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   pid_rot_z: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
   # abortion criteria - cfg
-  cart_min_dist_threshold_lin: 0.1
+  enable_abortion_checking: true
+  cart_min_dist_threshold_lin: 0.5
   cart_min_dist_threshold_rot: 0.1
   twist_dead_threshold_lin: 0.05
   twist_dead_threshold_rot: 0.05
