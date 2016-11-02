@@ -1,0 +1,21 @@
+pub_rate: 1.0 # Optional
+base_path: '' # Optional, prepended to all diagnostic output
+analyzers:
+  motors:
+    type: diagnostic_aggregator/AnalyzerGroup
+    path: Actuators
+    analyzers:
+      arm:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: gripper
+        contains: 'gripper_controller'
+
+## remove diagnostics from gazebo in simulated case
+  simulation:
+    type: diagnostic_aggregator/DiscardAnalyzer
+    path: none
+    contains: 'joint'
+  simulation2:
+    type: diagnostic_aggregator/DiscardAnalyzer
+    path: none
+    contains: 'Controller'

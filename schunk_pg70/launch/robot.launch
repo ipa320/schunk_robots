@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_pg70)/urdf/robot.urdf.xacro'" />
+
+  <!-- robot state publisher -->
+  <node ns="gripper" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" type="string" value="" />
+  </node>
+
+  <node ns="gripper" name="driver" pkg="canopen_motor_node" type="canopen_motor_node" output="screen" clear_params="true" launch-prefix="">
+     <rosparam param="bus/device" subst_value="True">can0</rosparam>
+     <rosparam command="load" file="$(find schunk_pg70)/config/gripper_driver.yaml" />
+  </node>
+
+  <!-- controllers -->
+  <rosparam ns="gripper" command="load" file="$(find schunk_pg70)/config/gripper_controller.yaml" />
+
+  <!-- start_controllers -->
+  <node ns="gripper" name="gripper_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
+
+  <!-- control_mode_adapter -->
+  <node ns="gripper" name="cob_control_mode_adapter_node" pkg="cob_control_mode_adapter" type="cob_control_mode_adapter_node" cwd="node" respawn="false" output="screen"/>
+  <node ns="gripper" name="joint_states_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states" cwd="node" respawn="true" output="screen"/>
+
+  <!-- default robot config -->
+  <rosparam ns="/script_server/gripper" command="load" file="$(find schunk_pg70)/config/joint_configurations.yaml" />
+
+</launch>

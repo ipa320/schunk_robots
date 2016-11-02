@@ -1,0 +1,22 @@
+## joint_names
+joint_names: [pg70_finger_left_joint]
+
+## control_mode_adapter
+max_command_silence: 0.5
+
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+joint_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - pg70_finger_left_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.005
+      pg70_finger_left_joint: {trajectory: 0.01, goal: 0.005}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+  required_drive_mode: 7

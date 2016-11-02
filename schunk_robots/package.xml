@@ -18,6 +18,7 @@
   <exec_depend>schunk_lwa4d</exec_depend>
   <exec_depend>schunk_lwa4p</exec_depend>
   <exec_depend>schunk_lwa4p_extended</exec_depend>
+  <exec_depend>schunk_pg70</exec_depend>
 
   <export>
     <metapackage/>
