@@ -5,10 +5,10 @@ analyzers:
     type: diagnostic_aggregator/AnalyzerGroup
     path: Actuators
     analyzers:
-      arm:
+      gripper:
         type: diagnostic_aggregator/GenericAnalyzer
-        path: gripper
-        contains: 'gripper_controller'
+        path: Gripper
+        contains: 'gripper'
 
 ## remove diagnostics from gazebo in simulated case
   simulation:
