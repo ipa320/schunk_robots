@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="pg70" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+
+  <!-- schunk pg70 -->
+  <xacro:include filename="$(find schunk_description)/urdf/pg70/pg70.urdf.xacro" />
+
+  <!-- Used for fixing robot to Gazebo -->
+  <link name="world"/>
+
+  <!-- arm -->
+  <xacro:schunk_pg70 name="pg70" parent="world" has_podest="true">
+    <origin xyz="0 0 0.026" rpy="0 0 0" /> <!--slightly above gazebo plane-->
+  </xacro:schunk_pg70>
+
+  <!-- gazebo_plugin for gripper -->
+  <gazebo>
+    <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+      <robotNamespace>gripper</robotNamespace>
+      <filterJointsParam>joint_names</filterJointsParam>
+    </plugin>
+  </gazebo>
+
+</robot>
