@@ -18,6 +18,7 @@
   <exec_depend>canopen_motor_node</exec_depend>
   <exec_depend>cob_cartesian_controller</exec_depend>
   <exec_depend>cob_command_gui</exec_depend>
+  <exec_depend>cob_control_mode_adapter</exec_depend>
   <exec_depend>cob_controller_configuration_gazebo</exec_depend>
   <exec_depend>cob_dashboard</exec_depend>
   <exec_depend>cob_description</exec_depend>
