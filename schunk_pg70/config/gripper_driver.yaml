@@ -1,19 +1,18 @@
-driver:
-  sync:
-    overflow: 0 # overflow sync counter at value or do not set it (0, default)
-    interval_ms: 10
-  heartbeat: # simple heartbeat producer, optional!
-    rate: 20 # heartbeat rate
-    msg: "77f#05" # message to send, cansend format: heartbeat of node 127 with status 5=Started
-  defaults: # optional, all defaults can be overwritten per node
-    eds_pkg: schunk_pg70 # optional package  name for relative path
-    eds_file: "config/Schunk_0_63.dcf" # path to EDS/DCF file
-    pos_to_device: "rint(pos*1000000*2)" # m -> µm
-    pos_from_device: "obj6064/1000000/2" # actual position [µm] -> m
-    vel_to_device: "rint(vel*1000000*2)" # m -> µm
-    vel_from_device: "obj606C/1000000/2" # actual velocity [µm] -> m
-  nodes:
-    motor:
-      joint: pg70_finger_left_joint
-      id: 1
+sync:
+  overflow: 0 # overflow sync counter at value or do not set it (0, default)
+  interval_ms: 10
+heartbeat: # simple heartbeat producer, optional!
+  rate: 20 # heartbeat rate
+  msg: "77f#05" # message to send, cansend format: heartbeat of node 127 with status 5=Started
+defaults: # optional, all defaults can be overwritten per node
+  eds_pkg: schunk_pg70 # optional package  name for relative path
+  eds_file: "config/Schunk_0_63.dcf" # path to EDS/DCF file
+  pos_to_device: "rint(pos*1000000*2)" # m -> µm
+  pos_from_device: "obj6064/1000000/2" # actual position [µm] -> m
+  vel_to_device: "rint(vel*1000000*2)" # m -> µm
+  vel_from_device: "obj606C/1000000/2" # actual velocity [µm] -> m
+nodes:
+  motor:
+    joint: pg70_finger_left_joint
+    id: 1
 

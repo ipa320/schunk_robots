@@ -10,4 +10,11 @@
     <rosparam command="load" ns="control_buttons" file="$(find schunk_pg70)/config/command_gui_buttons.yaml"/>
   </node>
 
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+    <rosparam command="delete" ns="diagnostic_aggregator"/>
+    <rosparam command="load" file="$(find schunk_pg70)/config/diagnostics_analyzers.yaml" />
+  </node>
+
+  <node pkg="cob_dashboard" type="cob_dashboard_aggregator.py" name="dashboard_aggregator" />
+
 </launch>
