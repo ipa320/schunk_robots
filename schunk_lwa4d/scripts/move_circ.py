@@ -10,34 +10,17 @@ import simple_cartesian_interface as sci
 
 def init_pos():
     sss = simple_script_server()
-    sss.move("arm", [[-0.00032004093963244884, -0.7064191894021441, -1.577532922958369e-06, 1.4183686971944311, 1.2084352562169443e-05, -0.6913530502577565, -0.0002663056533762642]])
+    sss.move("arm", [[-0.0002934322105607734, -0.38304632633953606, 6.931483707006691e-07, 0.8526320037121202, 5.69952198326007e-07, -0.47039657856235184, -0.00029228225570943067]])
 
 if __name__ == '__main__':
-    rospy.init_node('test_move_lin_interface')
+    rospy.init_node('test_move_circ_interface')
     init_pos()
 
 
-    pose = sci.gen_pose(pos=[0.0, 0, 0.9], rpy=[0.0, 0.0, 0.0])
+    pose = sci.gen_pose(pos=[-0.2, 0.0, 0.8], rpy=[0, 0.0, 0.0])
     profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
-    #profile.profile_type = Profile.SINOID
-    profile.profile_type = Profile.RAMP
-
-    success, message = sci.move_lin(pose, "world", profile)
-    if success:
-        rospy.loginfo(message)
-    else:
-        rospy.logerr(message)
-
-    #init_pos()
- 
-    rospy.sleep(3.0)
-
-    pose = sci.gen_pose(pos=[0.3, 0, 0.9], rpy=[0.0, 0.0, math.pi/3])
-    profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
+    profile.vel = 0.2
+    profile.accl = 0.1
     profile.profile_type = Profile.SINOID
     #profile.profile_type = Profile.RAMP
 
@@ -47,14 +30,27 @@ if __name__ == '__main__':
     else:
         rospy.logerr(message)
 
-    #init_pos()
 
-    rospy.sleep(1.0)
-
-    pose = sci.gen_pose(pos=[0.3, 0, 0.8], rpy=[0.0, -0.2, 0.5])
+    pose = sci.gen_pose(pos=[0.0, 0.0, 0.8], rpy=[0.0, 0.0, 0.0])
+    start_angle = 180.0 * math.pi / 180.0
+    end_angle = 0.0 * math.pi / 180.0
     profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
+    profile.vel = 0.4
+    profile.accl = 0.3
+    profile.profile_type = Profile.SINOID
+    #profile.profile_type = Profile.RAMP
+
+    success, message = sci.move_circ(pose, "world", start_angle, end_angle, 0.2, profile)
+    if success:
+        rospy.loginfo(message)
+    else:
+        rospy.logerr(message)
+
+
+    pose = sci.gen_pose(pos=[0.2, 0.0, 0.8], rpy=[0.0, math.pi/2, 0.0])
+    profile = Profile()
+    profile.vel = 0.3
+    profile.accl = 0.3
     profile.profile_type = Profile.SINOID
     #profile.profile_type = Profile.RAMP
 
@@ -64,15 +60,11 @@ if __name__ == '__main__':
     else:
         rospy.logerr(message)
 
-    #init_pos()
 
-    rospy.sleep(1.0)
-
-
-    pose = sci.gen_pose(pos=[-0.3, 0, 0.8], rpy=[0.0, 1.0 , -0.5])
+    pose = sci.gen_pose(pos=[0.0, -0.2, 0.8], rpy=[0.0, 0.0, math.pi/2])
     profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
+    profile.vel = 0.3
+    profile.accl = 0.3
     profile.profile_type = Profile.SINOID
     #profile.profile_type = Profile.RAMP
 
@@ -82,14 +74,27 @@ if __name__ == '__main__':
     else:
         rospy.logerr(message)
 
-    #init_pos()
 
-    rospy.sleep(1.0)
-
-    pose = sci.gen_pose(pos=[-0.3, 0, 0.9], rpy=[0.0, 0.0, 0.0])
+    pose = sci.gen_pose(pos=[0.0, 0.0, 0.8], rpy=[0.0, 0.0, math.pi/2])
+    start_angle = 180.0 * math.pi / 180.0
+    end_angle = 0.0 * math.pi / 180.0
     profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
+    profile.vel = 0.4
+    profile.accl = 0.3
+    profile.profile_type = Profile.SINOID
+    #profile.profile_type = Profile.RAMP
+
+    success, message = sci.move_circ(pose, "world", start_angle, end_angle, 0.2, profile)
+    if success:
+        rospy.loginfo(message)
+    else:
+        rospy.logerr(message)
+
+
+    pose = sci.gen_pose(pos=[0.0, 0.2, 0.8], rpy=[0.0, math.pi/2, 0.0])
+    profile = Profile()
+    profile.vel = 0.3
+    profile.accl = 0.3
     profile.profile_type = Profile.SINOID
     #profile.profile_type = Profile.RAMP
 
@@ -99,15 +104,11 @@ if __name__ == '__main__':
     else:
         rospy.logerr(message)
 
-    #init_pos()
-    rospy.sleep(1.0)
 
-
-     
-    pose = sci.gen_pose(pos=[0.0, 0, 0.9], rpy=[0.0, 0.0, 0.0])
+    pose = sci.gen_pose(pos=[-0.2, 0.0, 0.8], rpy=[0.0, 0.0, 0.0])
     profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
+    profile.vel = 0.3
+    profile.accl = 0.3
     profile.profile_type = Profile.SINOID
     #profile.profile_type = Profile.RAMP
 
@@ -117,23 +118,4 @@ if __name__ == '__main__':
     else:
         rospy.logerr(message)
 
-    #init_pos()
-    rospy.sleep(1.0)
-
-
-
-    pose = sci.gen_pose(pos=[0.0, 0, 0.9], rpy=[0.5, 0.0, 0.0])
-    profile = Profile()
-    profile.vel = 0.1
-    profile.accl = 0.05
-    profile.profile_type = Profile.SINOID
-    #profile.profile_type = Profile.RAMP
-
-    success, message = sci.move_lin(pose, "world", profile)
-    if success:
-        rospy.loginfo(message)
-    else:
-        rospy.logerr(message)
-
-    #init_pos()
-    rospy.sleep(1.0)
+    init_pos()
