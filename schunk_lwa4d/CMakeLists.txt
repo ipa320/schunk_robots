@@ -15,3 +15,7 @@ endif()
 install(DIRECTORY config launch urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+install(PROGRAMS scripts/move_lin.py scripts/move_circ.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
+)
