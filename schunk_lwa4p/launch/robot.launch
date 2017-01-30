@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <!-- send urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_lwa4p)/urdf/robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find schunk_lwa4p)/urdf/robot.urdf.xacro'" />
 
   <!-- robot state publisher -->
   <node ns="arm" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">

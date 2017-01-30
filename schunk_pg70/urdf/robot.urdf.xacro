@@ -17,12 +17,4 @@
     <origin xyz="0 0 0.026" rpy="0 0 0" /> <!--slightly above gazebo plane-->
   </xacro:schunk_pg70>
 
-  <!-- gazebo_plugin for gripper -->
-  <gazebo>
-    <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
-      <robotNamespace>gripper</robotNamespace>
-      <filterJointsParam>joint_names</filterJointsParam>
-    </plugin>
-  </gazebo>
-
 </robot>
