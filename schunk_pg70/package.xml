@@ -19,10 +19,10 @@
   <exec_depend>cob_cartesian_controller</exec_depend>
   <exec_depend>cob_command_gui</exec_depend>
   <exec_depend>cob_control_mode_adapter</exec_depend>
-  <exec_depend>cob_controller_configuration_gazebo</exec_depend>
   <exec_depend>cob_dashboard</exec_depend>
   <exec_depend>cob_description</exec_depend>
   <exec_depend>cob_gazebo_ros_control</exec_depend>
+  <exec_depend>cob_helper_tools</exec_depend>
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>diagnostic_aggregator</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
