@@ -1,0 +1,12 @@
+- git:
+    uri: 'https://github.com/ipa320/cob_command_tools.git'
+    local-name: cob_command_tools
+    version: indigo_dev
+- git:
+    uri: 'https://github.com/ipa320/cob_common.git'
+    local-name: cob_common
+    version: indigo_dev
+- git:
+    uri: 'https://github.com/ipa320/schunk_modular_robotics.git'
+    local-name: schunk_modular_robotics
+    version: indigo_dev

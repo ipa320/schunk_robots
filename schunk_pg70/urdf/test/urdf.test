@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-  <test test-name="lwa4d_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_lwa4d)/urdf/robot.urdf.xacro"/>
+  <test test-name="pg70_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_pg70)/urdf/robot.urdf.xacro"/>
 
 </launch>
