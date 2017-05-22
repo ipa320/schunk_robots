@@ -1,0 +1,7 @@
+joint_names: [pw70_tilt_joint, pw70_pan_joint]
+action_name: /ptu/joint_group_position_controller/command
+service_ns: /ptu/driver
+default_vel: 0.02
+
+home: [[0.0, 0.0]]
+fold: [[0.7, 0.7]]

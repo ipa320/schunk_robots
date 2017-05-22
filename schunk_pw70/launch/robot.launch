@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find schunk_pw70)/urdf/robot.urdf.xacro'" />
+
+  <!-- robot state publisher -->
+  <node ns="ptu" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" type="string" value="" />
+  </node>
+
+  <node ns="ptu" name="controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" respawn="false" output="screen" >
+      <rosparam command="load" file="$(find schunk_pw70)/config/ptu_driver.yaml"/>
+  </node>
+
+  <!-- default robot config -->
+  <rosparam ns="/script_server/ptu" command="load" file="$(find schunk_pw70)/config/joint_configurations.yaml" />
+
+</launch>

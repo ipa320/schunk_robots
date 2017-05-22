@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+  <test test-name="pw70_test" pkg="cob_description" type="test_urdf.py" args="$(find schunk_pw70)/urdf/robot.urdf.xacro"/>
+
+</launch>

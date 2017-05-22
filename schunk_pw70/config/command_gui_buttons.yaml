@@ -1,0 +1,20 @@
+#group:
+#  group_name: <group_name>
+#  component_name: <component_name>
+#  buttons: [[button_name1,function_name1,parameter_name2,
+#    [button_name2,function_name2,parameter_name2]]
+
+
+group1:
+  group_name: ptu
+  component_name: ptu
+  buttons: [[stop,stop],
+    [init,init],
+    [recover,recover],
+    [halt,trigger,halt]]
+
+group2:
+  group_name: ptu 
+  component_name: ptu
+  buttons: [[home,move,home],
+    [fold,move,fold]]

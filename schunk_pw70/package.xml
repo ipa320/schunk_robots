@@ -1,0 +1,30 @@
+<package format="2">
+  <name>schunk_pw70</name>
+  <version>0.5.0</version>
+
+  <description> schunk_pw70 </description>
+
+  <license>LGPL</license>
+
+  <url type="website">http://ros.org/wiki/schunk_pw70</url>
+  <author email="denis.stogl@kit.edu">Denis Štogl</author>
+  <maintainer email="denis.stogl@kit.edu">Denis Štogl</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roslaunch</depend>
+  <depend>rostest</depend>
+
+  <exec_depend>cob_command_gui</exec_depend>
+  <exec_depend>cob_dashboard</exec_depend>
+  <exec_depend>cob_description</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rostopic</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>schunk_description</exec_depend>
+  <exec_depend>schunk_powercube_chain</exec_depend>
+  <exec_depend>topic_tools</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+</package>

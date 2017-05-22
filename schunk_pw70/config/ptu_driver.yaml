@@ -1,0 +1,11 @@
+can_module: SOCKETCAN
+can_device: can0
+can_baudrate: 250
+modul_ids: [1, 2]
+joint_names: [pw70_tilt_joint, pw70_pan_joint]
+max_accelerations: [1.3, 1.3] # specs [25.133, 16.755]
+min_publish_duration: 0.1
+horizon: 0.1
+OperationMode: position
+frequency: 20
+force_use_movevel: true
