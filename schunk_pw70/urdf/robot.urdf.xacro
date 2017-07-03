@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="pw70" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+
+  <!-- schunk pw70 -->
+  <xacro:include filename="$(find schunk_description)/urdf/pw70/pw70.urdf.xacro" />
+
+  <!-- Used for fixing robot to Gazebo -->
+  <link name="world"/>
+
+  <!-- arm -->
+  <xacro:schunk_pw70 name="pw70" parent="world" is_upsidedown="true">
+    <origin xyz="0 0 0.026" rpy="0 0 0" /> <!--slightly above gazebo plane-->
+  </xacro:schunk_pw70>
+
+</robot>
