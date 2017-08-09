@@ -7,8 +7,9 @@
   <license>LGPL</license>
 
   <url type="website">http://ros.org/wiki/schunk_lwa4d</url>
-  <author email="fxm-fm@ipa.fhg.de">Francisco Moreno</author>
-  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
+
+  <author email="fxm@ipa.fhg.de">Felix Messmer</author>
+  <maintainer email="bfb@ipa.fhg.de">Bruno Brito</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
 
