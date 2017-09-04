@@ -10,8 +10,7 @@
 
   <url type="website">http://ros.org/wiki/schunk_robots</url>
 
-  <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
-  <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+  <maintainer email="bfb@ipa.fhg.de">Bruno Brito</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
 

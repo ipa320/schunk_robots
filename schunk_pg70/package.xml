@@ -7,8 +7,9 @@
   <license>LGPL</license>
 
   <url type="website">http://ros.org/wiki/schunk_pg70</url>
+
   <author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
-  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
+  <maintainer email="bfb@ipa.fhg.de">Bruno Brito</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
 
